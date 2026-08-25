@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRICS 24H Market Clock — Geopolitics, Markets & Daily Rhythm</title>
+<meta name="description" content="A 24-hour market clock for Bangkok time with BRICS news, geopolitics headlines, market highlights and the Crypto Fear &amp; Greed Index.">
+<!-- ?view=clock | markets | news  -> show one block only (for Google Sites embeds) -->
+<script>document.documentElement.dataset.view=(new URLSearchParams(location.search).get("view")||"full");</script>
+<style>
+:root{
+  --bg:#0b0f19;
+  --bg2:#0d1220;
+  --panel:#111827;
+  --panel2:#151d2e;
+  --line:#1f2a3d;
+  --line2:#2a3a52;
+  --txt:#e6edf7;
+  --txt2:#9aa9bf;
+  --txt3:#64748b;
+  --cyan:#22d3ee;
+  --gold:#f5b301;
+  --green:#34d399;
+  --red:#f87171;
+  --violet:#a78bfa;
+  --blue:#60a5fa;
+
+  --c-wake:#f472b6;
+  --c-prep:#2dd4bf;
+  --c-meal:#fbbf24;
+  --c-commute:#64748b;
+  --c-work:#3b82f6;
+  --c-study:#34d399;
+  --c-rest:#a78bfa;
+  --c-sleep:#3730a3;
+}
+*{box-sizing:border-box}
+/* no white gutters when the page is embedded in an iframe (Google Sites) */
+html,body{margin:0;padding:0;background-color:#0b0f19}
+body{
+  background:
+    radial-gradient(1100px 700px at 15% -10%, #16213c 0%, transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, #10233a 0%, transparent 55%),
+    var(--bg);
+  color:var(--txt);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  font-size:15px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:ui-monospace,"Cascadia Mono","Consolas","SF Mono",Menlo,monospace;font-variant-numeric:tabular-nums}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1400px;margin:0 auto;padding:0 20px 60px}
+
+/* ---------- top bar ---------- */
+header.top{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);
+  background:rgba(11,15,25,.85);
+  border-bottom:1px solid var(--line);
+}
+.top-inner{max-width:1400px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.14em;font-size:13px}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.brand b{color:var(--gold)}
+.zones{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.zone{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:5px 10px;min-width:96px}
+.zone .z-name{font-size:9.5px;letter-spacing:.12em;color:var(--txt3);text-transform:uppercase}
+.zone .z-time{font-size:14px;font-weight:600}
+.zone.home{border-color:#2b4a63;background:linear-gradient(180deg,#0f2233,#101828)}
+.zone.home .z-name{color:var(--cyan)}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:20px;margin-top:22px}
+.card{background:linear-gradient(180deg,var(--panel) 0%,var(--panel2) 100%);border:1px solid var(--line);border-radius:16px}
+.card-h{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line)}
+.card-h h2{margin:0;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt2);font-weight:600}
+.card-b{padding:16px}
+.pill{font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid var(--line2);color:var(--txt2);background:#0e1626}
+.pill.ok{color:var(--green);border-color:#1d4d3c;background:#0c1f1a}
+.pill.warn{color:var(--gold);border-color:#4d3f14;background:#1e1808}
+.pill.err{color:var(--red);border-color:#4d1f1f;background:#1e0d0d}
+
+.clock-wrap{display:flex;justify-content:center;padding:8px 6px 14px}
+svg#clock{width:100%;max-width:660px;height:auto;display:block}
+.tick-lbl{font:600 13px ui-monospace,Consolas,monospace;fill:#8fa3bd}
+.tick-lbl.major{fill:#dce8f7}
+.tick-utc{font:500 9px ui-monospace,Consolas,monospace;fill:#4d6079}
+.arc-lbl{font:600 10.5px "Segoe UI",sans-serif;fill:#0b1220;letter-spacing:.04em}
+.sess-lbl{font:600 9px "Segoe UI",sans-serif;fill:#8fa3bd;letter-spacing:.06em}
+
+.center-time{font:700 46px ui-monospace,Consolas,monospace;fill:#fff;letter-spacing:-.02em}
+.center-sec{font:600 18px ui-monospace,Consolas,monospace;fill:var(--cyan)}
+.center-lbl{font:600 10px "Segoe UI",sans-serif;fill:#7f90a8;letter-spacing:.2em}
+.center-act{font:700 17px "Segoe UI",sans-serif;fill:#fff}
+.center-sub{font:500 11.5px "Segoe UI",sans-serif;fill:#93a5bd}
+
+/* ---------- right column ---------- */
+.side{display:flex;flex-direction:column;gap:20px;min-width:0}
+.now-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.now-box{background:#0d1524;border:1px solid var(--line);border-radius:12px;padding:12px}
+.now-box .lbl{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt3);margin-bottom:5px}
+.now-box .val{font-size:16px;font-weight:700;line-height:1.25}
+.now-box .sub{font-size:11.5px;color:var(--txt2);margin-top:3px}
+.prog{height:6px;border-radius:99px;background:#0a111d;border:1px solid var(--line);overflow:hidden;margin-top:10px}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--blue));width:0}
+.note{margin-top:10px;font-size:12px;color:var(--txt2);border-left:2px solid var(--line2);padding-left:10px}
+
+.timeline{max-height:330px;overflow-y:auto;padding-right:4px}
+.timeline::-webkit-scrollbar{width:7px}
+.timeline::-webkit-scrollbar-thumb{background:#243247;border-radius:9px}
+.tl-item{display:grid;grid-template-columns:12px 92px 1fr auto;align-items:center;gap:10px;padding:7px 8px;border-radius:9px;border:1px solid transparent}
+.tl-item + .tl-item{margin-top:2px}
+.tl-item .sw{width:10px;height:10px;border-radius:3px}
+.tl-item .tm{font-size:11.5px;color:var(--txt2)}
+.tl-item .nm{font-size:13px;font-weight:600}
+.tl-item .dur{font-size:11px;color:var(--txt3)}
+.tl-item.active{background:#0f2033;border-color:#1f4a63}
+.tl-item.active .nm{color:var(--cyan)}
+.tl-item.done{opacity:.42}
+
+/* ---------- fear & greed ---------- */
+.fng{display:grid;grid-template-columns:190px 1fr;gap:16px;align-items:center}
+.fng-val{font:800 44px ui-monospace,Consolas,monospace;line-height:1}
+.fng-cls{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+.fng-hist{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+.fng-hist div{font-size:11.5px;color:var(--txt2)}
+.fng-hist b{display:block;font-size:16px;color:var(--txt);font-family:ui-monospace,Consolas,monospace}
+
+/* ---------- markets ---------- */
+.sec{margin-top:26px}
+.sec-h{display:flex;align-items:baseline;gap:12px;margin:0 0 12px;flex-wrap:wrap}
+.sec-h h2{margin:0;font-size:17px;letter-spacing:.02em}
+.sec-h span{font-size:12px;color:var(--txt3)}
+.mkt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:12px}
+.sec-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.mkt{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:12px;padding:12px 13px;position:relative;overflow:hidden}
+.mkt:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--line2)}
+.mkt.up:before{background:var(--green)}
+.mkt.dn:before{background:var(--red)}
+.mkt .m-n{font-size:11px;color:var(--txt2);letter-spacing:.04em;display:flex;justify-content:space-between;gap:6px}
+.mkt .m-n em{font-style:normal;color:var(--txt3);font-size:9.5px}
+.mkt .m-p{font:700 21px ui-monospace,Consolas,monospace;margin-top:5px}
+.mkt .m-c{font:600 12.5px ui-monospace,Consolas,monospace;margin-top:2px}
+.up-t{color:var(--green)}.dn-t{color:var(--red)}.flat-t{color:var(--txt2)}
+.fx-table{width:100%;border-collapse:collapse;font-size:13px}
+.fx-table th{text-align:left;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt3);font-weight:600;padding:6px 8px;border-bottom:1px solid var(--line)}
+.fx-table td{padding:8px;border-bottom:1px solid #16202f}
+.fx-table tr:last-child td{border-bottom:0}
+.flag{font-size:15px;margin-right:7px}
+
+/* ---------- news ---------- */
+.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.feed{max-height:560px;overflow-y:auto}
+.feed::-webkit-scrollbar{width:7px}
+.feed::-webkit-scrollbar-thumb{background:#243247;border-radius:9px}
+.item{display:block;padding:12px 16px;border-bottom:1px solid #16202f;transition:background .15s}
+.item:hover{background:#0f1a2b}
+.item:last-child{border-bottom:0}
+.item .t{font-size:13.5px;font-weight:600;line-height:1.42}
+.item:hover .t{color:var(--cyan)}
+.item .m{margin-top:5px;font-size:11px;color:var(--txt3);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.item .m .src{color:var(--txt2)}
+.badge-new{color:var(--gold);border:1px solid #4d3f14;background:#1e1808;border-radius:99px;padding:1px 6px;font-size:9.5px;letter-spacing:.08em}
+.empty{padding:22px 16px;color:var(--txt2);font-size:13px}
+.empty code{background:#0a111d;border:1px solid var(--line);border-radius:6px;padding:2px 7px;color:var(--gold);font-family:ui-monospace,Consolas,monospace;font-size:12px;display:inline-block;margin-top:6px}
+
+footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);color:var(--txt3);font-size:11.5px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.btn{cursor:pointer;background:#0f1a2b;border:1px solid var(--line2);color:var(--txt);border-radius:8px;padding:5px 11px;font-size:11.5px}
+.btn:hover{border-color:var(--cyan);color:var(--cyan)}
+
+/* ---------- flights ---------- */
+.fl-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sel{background:#0a111d;border:1px solid var(--line2);color:var(--txt);border-radius:8px;padding:5px 9px;font-size:12.5px;font-family:inherit}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tbl-scroll::-webkit-scrollbar{height:7px}
+.tbl-scroll::-webkit-scrollbar-thumb{background:#243247;border-radius:9px}
+.fl-table{width:100%;min-width:600px;border-collapse:collapse;font-size:13px}
+.fl-table th{text-align:left;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt3);font-weight:600;padding:8px;border-bottom:1px solid var(--line)}
+.fl-table td{padding:11px 8px;border-bottom:1px solid #16202f;vertical-align:top}
+.fl-table tr:last-child td{border-bottom:0}
+.fl-table tr.done .rt,.fl-table tr.done .fl-no{opacity:.45}
+.fl-no{font:700 14px ui-monospace,Consolas,monospace}
+.fl-no small{display:block;font:500 10px "Segoe UI",sans-serif;color:var(--txt3);letter-spacing:.06em;margin-top:2px}
+.rt{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.rt .ap b{font-size:13px}
+.rt .ap span{display:block;font-size:10.5px;color:var(--txt3)}
+.rt .ar{color:var(--cyan);font-size:15px}
+.tm-cell{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;white-space:nowrap}
+.tm-cell em{font-style:normal;color:var(--txt3);font-size:10.5px}
+.st{font-size:12px;font-weight:600}
+.st-air{color:var(--cyan)}.st-soon{color:var(--gold)}.st-land{color:var(--green)}
+.st-sch{color:var(--txt2)}.st-off{color:var(--txt3)}
+.st-sub{font-size:11px;color:var(--txt3);margin-top:2px;font-weight:400}
+.fl-prog{height:4px;border-radius:99px;background:#0a111d;border:1px solid var(--line);overflow:hidden;margin-top:6px;max-width:150px}
+.fl-prog i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--blue))}
+.chk{width:16px;height:16px;accent-color:#22d3ee;cursor:pointer;margin-top:2px}
+.lnk{font-size:11px;color:var(--cyan);border:1px solid #1f4a63;background:#0d1c28;border-radius:7px;padding:3px 8px;white-space:nowrap}
+.lnk:hover{background:#123048}
+.warnbar{margin:10px 0 0;padding:9px 12px;border-radius:9px;font-size:12px;background:#1e1808;border:1px solid #4d3f14;color:#f5d68a}
+.warnbar b{color:var(--gold)}
+
+/* ---------- editor modal ---------- */
+.icon-btn{cursor:pointer;background:#0f1a2b;border:1px solid var(--line2);color:var(--txt2);border-radius:8px;padding:5px 10px;font-size:11.5px;letter-spacing:.04em}
+.icon-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.modal-bg{position:fixed;inset:0;background:rgba(4,6,12,.78);z-index:100;display:none;overflow:auto}
+.modal-bg.on{display:block}
+.modal{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line2);border-radius:16px;max-width:960px;margin:36px auto;box-shadow:0 24px 70px rgba(0,0,0,.6)}
+.modal-h{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.modal-h h3{margin:0;font-size:15px;flex:1}
+.tabs{display:flex;gap:6px;padding:12px 18px 0}
+.tab{cursor:pointer;background:transparent;border:1px solid var(--line);color:var(--txt2);border-radius:8px 8px 0 0;padding:7px 14px;font-size:12.5px;border-bottom:none}
+.tab.on{background:#0f1a2b;color:var(--cyan);border-color:var(--line2)}
+.panel{display:none;padding:16px 18px 20px;border-top:1px solid var(--line2);margin-top:-1px}
+.panel.on{display:block}
+.ed{width:100%;border-collapse:collapse;font-size:12.5px}
+.ed th{text-align:left;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);padding:5px 6px;font-weight:600}
+.ed td{padding:4px 6px;border-bottom:1px solid #16202f}
+.ed input,.ed select{background:#0a111d;border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 7px;font-size:12.5px;font-family:inherit;width:100%}
+.ed input[type=color]{padding:2px;width:36px;height:28px;cursor:pointer}
+.ed input[type=time]{width:104px}
+.ed .del{cursor:pointer;background:#1e0d0d;border:1px solid #4d1f1f;color:#f87171;border-radius:6px;padding:4px 8px;font-size:11px}
+.ed-days{display:flex;gap:3px}
+.ed-days label{cursor:pointer;font-size:10px;color:var(--txt3);border:1px solid var(--line);border-radius:5px;padding:3px 5px;user-select:none}
+.ed-days input{display:none}
+.ed-days input:checked + span{color:var(--cyan)}
+.ed-days label:has(input:checked){border-color:#1f4a63;background:#0f2033}
+.ed-actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;align-items:center}
+.btn-primary{cursor:pointer;background:#0f2a3d;border:1px solid #22d3ee;color:#22d3ee;border-radius:8px;padding:7px 16px;font-size:12.5px;font-weight:600}
+.btn-primary:hover{background:#134055}
+.hint{font-size:11.5px;color:var(--txt3);margin:10px 0 0}
+.keyrow{display:flex;gap:8px;align-items:center;margin-top:12px;flex-wrap:wrap}
+.keyrow input{background:#0a111d;border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:6px 9px;font-size:12px;min-width:280px;font-family:ui-monospace,monospace}
+
+/* ---------- single-block views for embedding ---------- */
+html[data-view="clock"]   #secMarkets, html[data-view="clock"]   #secTables,
+html[data-view="clock"]   #secNews,    html[data-view="clock"]   #secFlights,
+html[data-view="markets"] .hero,       html[data-view="markets"] #secNews,
+html[data-view="markets"] #secFlights,
+html[data-view="news"]    .hero,       html[data-view="news"]    #secMarkets,
+html[data-view="news"]    #secTables,  html[data-view="news"]    #secFlights,
+html[data-view="flights"] .hero,       html[data-view="flights"] #secMarkets,
+html[data-view="flights"] #secTables,  html[data-view="flights"] #secNews { display:none }
+html:not([data-view="full"]) .wrap{padding-bottom:24px}
+html:not([data-view="full"]) .sec{margin-top:18px}
+html:not([data-view="full"]) footer{display:none}
+html[data-view="clock"] .hero{margin-top:16px}
+
+@media (max-width:1080px){
+  .hero{grid-template-columns:1fr}
+  .news-grid{grid-template-columns:1fr}
+  .sec-split{grid-template-columns:1fr}
+  .zones{width:100%;margin-left:0}
+}
+@media (max-width:520px){
+  .wrap{padding:0 12px 40px}
+  .now-grid{grid-template-columns:1fr}
+  .fng{grid-template-columns:1fr}
+  .zone{min-width:84px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand"><span class="dot"></span>BRICS&nbsp;<b>24H</b>&nbsp;MARKET&nbsp;CLOCK</div>
+    <button class="icon-btn" id="openEditor" title="Edit your routine and flight list">⚙ Customize</button>
+    <div class="zones" id="zones"></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ================= HERO ================= -->
+  <div class="hero">
+
+    <div class="card">
+      <div class="card-h">
+        <h2>24-Hour Dial — Asia/Bangkok (UTC+7)</h2>
+        <span class="pill" id="dayPill">—</span>
+      </div>
+      <div class="clock-wrap">
+        <svg id="clock" viewBox="0 0 660 660" role="img" aria-label="24 hour clock with daily schedule and market sessions">
+          <defs>
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <radialGradient id="coreGrad" cx="50%" cy="35%" r="70%">
+              <stop offset="0%" stop-color="#16243b"/><stop offset="100%" stop-color="#0a0f1b"/>
+            </radialGradient>
+          </defs>
+          <circle cx="330" cy="330" r="324" fill="none" stroke="#16202f"/>
+          <g id="sessRing"></g>
+          <g id="schedRing"></g>
+          <g id="ticks"></g>
+          <circle cx="330" cy="330" r="158" fill="url(#coreGrad)" stroke="#22314a"/>
+          <g id="core"></g>
+          <g id="hand"></g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="side">
+      <div class="card">
+        <div class="card-h"><h2>Right Now</h2><span class="pill" id="sessPill">—</span></div>
+        <div class="card-b">
+          <div class="now-grid">
+            <div class="now-box">
+              <div class="lbl">Current Block</div>
+              <div class="val" id="curName">—</div>
+              <div class="sub mono" id="curTime">—</div>
+              <div class="prog"><i id="curProg"></i></div>
+            </div>
+            <div class="now-box">
+              <div class="lbl">Up Next</div>
+              <div class="val" id="nextName">—</div>
+              <div class="sub mono" id="nextIn">—</div>
+              <div class="prog"><i id="nextProg" style="background:linear-gradient(90deg,#f5b301,#f472b6)"></i></div>
+            </div>
+          </div>
+          <div class="note" id="curNote">—</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Crypto Fear &amp; Greed</h2><span class="pill" id="fngPill">loading…</span></div>
+        <div class="card-b">
+          <div class="fng">
+            <svg viewBox="0 0 200 118" style="width:190px;height:auto">
+              <g id="fngGauge"></g>
+            </svg>
+            <div>
+              <div class="fng-val mono" id="fngVal">—</div>
+              <div class="fng-cls" id="fngCls">—</div>
+              <div class="fng-hist" id="fngHist"></div>
+              <svg id="fngSpark" viewBox="0 0 300 54" style="width:100%;height:54px;margin-top:10px"></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Today's Timeline</h2><span class="pill" id="tlPill">11 blocks</span></div>
+        <div class="card-b" style="padding:10px 10px 12px">
+          <div class="timeline" id="timeline"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FLIGHTS ================= -->
+  <div class="sec" id="secFlights">
+    <div class="sec-h">
+      <h2>Qatar Airways Watchlist</h2>
+      <span id="flStamp">—</span>
+    </div>
+    <div class="card">
+      <div class="card-h">
+        <div class="fl-head">
+          <select class="sel" id="flMonth" title="Schedules differ month to month — pick the month you're planning"></select>
+          <span class="pill" id="flPill">—</span>
+        </div>
+        <button class="icon-btn" id="editFlights">Edit flights</button>
+      </div>
+      <div class="card-b" style="padding:6px 14px 14px">
+        <div class="tbl-scroll"><table class="fl-table" id="flTable"><tbody></tbody></table></div>
+        <div id="flWarn"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MARKETS ================= -->
+  <div class="sec" id="secMarkets">
+    <div class="sec-h">
+      <h2>Market Highlights</h2>
+      <span id="mktStamp">—</span>
+    </div>
+    <div class="mkt-grid" id="mktGrid"></div>
+  </div>
+
+  <div class="sec sec-split" id="secTables">
+    <div class="card">
+      <div class="card-h"><h2>BRICS Currencies vs USD</h2><span class="pill" id="fxPill">—</span></div>
+      <div class="card-b" style="padding:8px 12px 12px"><table class="fx-table" id="fxTable"><tbody></tbody></table></div>
+    </div>
+    <div class="card">
+      <div class="card-h"><h2>Exchange Sessions</h2><span class="pill" id="exPill">live</span></div>
+      <div class="card-b" style="padding:8px 12px 12px"><table class="fx-table" id="sessTable"><tbody></tbody></table></div>
+    </div>
+  </div>
+
+  <!-- ================= NEWS ================= -->
+  <div class="sec" id="secNews">
+    <div class="sec-h">
+      <h2>The Desk</h2>
+      <span id="newsStamp">—</span>
+      <button class="btn" id="reloadBtn" style="margin-left:auto">Refresh data</button>
+    </div>
+    <div class="news-grid">
+      <div class="card">
+        <div class="card-h"><h2>🌐 BRICS Desk</h2><span class="pill" id="p-brics">—</span></div>
+        <div class="feed" id="f-brics"></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h2>⚔️ Geopolitics</h2><span class="pill" id="p-geo">—</span></div>
+        <div class="feed" id="f-geo"></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h2>📈 Markets &amp; Crypto</h2><span class="pill" id="p-mkt">—</span></div>
+        <div class="feed" id="f-markets"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= EDITOR ================= -->
+  <div class="modal-bg" id="modalBg">
+    <div class="modal">
+      <div class="modal-h">
+        <h3>Customize</h3>
+        <span class="pill" id="edSaved" style="display:none">saved</span>
+        <button class="icon-btn" id="closeEditor">Close ✕</button>
+      </div>
+      <div class="tabs">
+        <button class="tab on" data-panel="pRoutine">Daily Routine</button>
+        <button class="tab" data-panel="pFlights">Flights</button>
+      </div>
+
+      <div class="panel on" id="pRoutine">
+        <table class="ed" id="edRoutine">
+          <thead><tr><th style="width:110px">Starts</th><th>Block name</th><th style="width:44px">Colour</th><th>Note shown under "Right Now"</th><th style="width:36px"></th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="ed-actions">
+          <button class="icon-btn" id="addBlock">+ Add block</button>
+          <button class="btn-primary" id="saveRoutine">Save routine</button>
+          <button class="icon-btn" id="resetRoutine">Reset to default</button>
+        </div>
+        <p class="hint">Each block runs until the next one starts, so the 24 hours always add up — no gaps, no overlaps.
+        Times are Bangkok local. The last block of the day wraps around midnight automatically.</p>
+      </div>
+
+      <div class="panel" id="pFlights">
+        <div class="ed-actions" style="margin:0 0 12px">
+          <label style="font-size:12px;color:var(--txt2)">Month
+            <select class="sel" id="edMonth" style="margin-left:6px"></select>
+          </label>
+          <button class="icon-btn" id="copyMonth">Copy from another month…</button>
+        </div>
+        <div class="tbl-scroll"><table class="ed" id="edFlights" style="min-width:660px">
+          <thead><tr>
+            <th style="width:84px">Flight</th><th style="width:78px">From</th><th style="width:78px">To</th>
+            <th style="width:110px">Departs</th><th style="width:110px">Arrives</th><th>Operates on</th><th style="width:36px"></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table></div>
+        <div class="ed-actions">
+          <button class="icon-btn" id="addFlight">+ Add flight</button>
+          <button class="btn-primary" id="saveFlights">Save flights</button>
+          <button class="icon-btn" id="resetFlights">Reset month to default</button>
+        </div>
+        <p class="hint">Times are <b>local at each airport</b> — exactly as printed on the ticket. An arrival earlier than the
+        departure is treated as next-day automatically. Airport codes must be 3-letter IATA; unknown codes still work, they
+        just won't show a country or compute a status.</p>
+        <div class="keyrow">
+          <label style="font-size:12px;color:var(--txt2)">AeroDataBox key (optional, for live status)</label>
+          <input id="edKey" type="password" placeholder="paste RapidAPI key, or leave blank" autocomplete="off">
+          <button class="icon-btn" id="saveKey">Save key</button>
+        </div>
+        <p class="hint">Without a key the panel shows <b>schedule-based</b> status computed from the times above, plus a live-check
+        link per flight. A free RapidAPI AeroDataBox key turns on real departure/arrival status. The key is stored only in this
+        browser.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>Clock &amp; schedule in <b>Asia/Bangkok</b>. Sessions follow each exchange's local hours (DST handled automatically).</div>
+    <div>Data: Google News / Al Jazeera / BBC / Cointelegraph · Yahoo Finance · CoinGecko · alternative.me — informational only, not investment advice.</div>
+  </footer>
+</div>
+
+<!-- daily snapshot written by update.ps1 (loads fine from file:// too) -->
+<script src="data/brief.js" charset="utf-8" onerror="window.__BRIEF_MISSING__=true"></script>
+<script>
+"use strict";
+
+/* ============================================================
+   1. CONFIG — your day, your markets
+   ============================================================ */
+const TZ = "Asia/Bangkok";
+
+/* Edited in the browser via ⚙ Customize; saved to localStorage. This array is the
+   fallback / "Reset to default". `e` is recomputed from the next block's start. */
+const DEFAULT_ROUTINE = [
+  {s:"07:15", e:"07:30", name:"Wake Up",              short:"Wake",     c:"var(--c-wake)",    hex:"#f472b6",
+   note:"Tokyo and Seoul are already trading. One glance at the overnight tape — nothing more."},
+  {s:"07:30", e:"08:00", name:"Prepare To Go To Work",short:"Prep",     c:"var(--c-prep)",    hex:"#2dd4bf",
+   note:"Fear & Greed refreshes around this hour. Check the number, not the noise."},
+  {s:"08:00", e:"08:30", name:"Breakfast",            short:"Breakfast",c:"var(--c-meal)",    hex:"#fbbf24",
+   note:"Best slot for the BRICS desk — overnight statements from Moscow, Delhi and Beijing have landed."},
+  {s:"08:30", e:"09:00", name:"Commute To Work",      short:"Commute",  c:"var(--c-commute)", hex:"#64748b",
+   note:"Shanghai opens right about now. Headlines only — audio, not screens."},
+  {s:"09:00", e:"18:00", name:"Servx Office",         short:"Servx Office",c:"var(--c-work)", hex:"#3b82f6",
+   note:"Asian cash session runs underneath your work day. Deep work wins; the tape can wait."},
+  {s:"18:00", e:"19:30", name:"Commute To Home",      short:"Commute",  c:"var(--c-commute)", hex:"#64748b",
+   note:"London is in full swing — European policy and energy headlines break in this window."},
+  {s:"19:30", e:"20:00", name:"Prepare Dinner",       short:"Cook",     c:"var(--c-meal)",    hex:"#fbbf24",
+   note:"US pre-market is building. Let it build without you."},
+  {s:"20:00", e:"20:30", name:"Dinner",               short:"Dinner",   c:"var(--c-meal)",    hex:"#fbbf24",
+   note:"Most US macro prints (CPI, jobs, FOMC minutes) hit right around this half hour."},
+  {s:"20:30", e:"21:30", name:"Study & Research",     short:"Study",    c:"var(--c-study)",   hex:"#34d399",
+   note:"Your sharpest window: Wall Street opens inside this hour and London is still live. Read, don't react."},
+  {s:"21:30", e:"23:00", name:"Rest",                 short:"Rest",     c:"var(--c-rest)",    hex:"#a78bfa",
+   note:"London closes late evening Bangkok time. The volatility after it is somebody else's problem."},
+  {s:"23:00", e:"07:15", name:"Sleeping Time",        short:"Sleep",    c:"var(--c-sleep)",   hex:"#3730a3",
+   note:"The New York close happens while you sleep. Read it at breakfast — that is the whole point of this clock."}
+];
+
+let SCHEDULE = DEFAULT_ROUTINE.slice();
+
+/* ---------- flight watchlist ---------- */
+const AIRPORTS = {
+  DOH:{city:"Doha",        country:"Qatar",          flag:"🇶🇦", tz:"Asia/Qatar"},
+  BKK:{city:"Bangkok",     country:"Thailand",       flag:"🇹🇭", tz:"Asia/Bangkok"},
+  HAN:{city:"Hanoi",       country:"Vietnam",        flag:"🇻🇳", tz:"Asia/Ho_Chi_Minh"},
+  SGN:{city:"Ho Chi Minh", country:"Vietnam",        flag:"🇻🇳", tz:"Asia/Ho_Chi_Minh"},
+  RGN:{city:"Yangon",      country:"Myanmar",        flag:"🇲🇲", tz:"Asia/Yangon"},
+  BEY:{city:"Beirut",      country:"Lebanon",        flag:"🇱🇧", tz:"Asia/Beirut"},
+  LHR:{city:"London",      country:"United Kingdom", flag:"🇬🇧", tz:"Europe/London"},
+  MAD:{city:"Madrid",      country:"Spain",          flag:"🇪🇸", tz:"Europe/Madrid"},
+  ADD:{city:"Addis Ababa", country:"Ethiopia",       flag:"🇪🇹", tz:"Africa/Addis_Ababa"},
+  CDG:{city:"Paris",       country:"France",         flag:"🇫🇷", tz:"Europe/Paris"},
+  SIN:{city:"Singapore",   country:"Singapore",      flag:"🇸🇬", tz:"Asia/Singapore"},
+  KUL:{city:"Kuala Lumpur",country:"Malaysia",       flag:"🇲🇾", tz:"Asia/Kuala_Lumpur"},
+  DEL:{city:"Delhi",       country:"India",          flag:"🇮🇳", tz:"Asia/Kolkata"},
+  HKG:{city:"Hong Kong",   country:"Hong Kong",      flag:"🇭🇰", tz:"Asia/Hong_Kong"},
+  JFK:{city:"New York",    country:"United States",  flag:"🇺🇸", tz:"America/New_York"}
+};
+const ALLDAYS = [1,2,3,4,5,6,7];   // 1 = Monday
+
+/* Routes verified against public flight-tracker listings. Times are local at each
+   airport and DO drift between seasons — that is what the month picker is for. */
+const DEFAULT_FLIGHTS = {
+  9: [
+    {no:"QR836",  from:"DOH", to:"BKK", dep:"02:30", arr:"13:25", days:ALLDAYS},
+    {no:"QR416",  from:"DOH", to:"BEY", dep:"08:30", arr:"12:35", days:ALLDAYS},
+    {no:"QR1238", from:"DOH", to:"",    dep:"",      arr:"",      days:ALLDAYS, verify:true},
+    {no:"QR002",  from:"LHR", to:"DOH", dep:"20:20", arr:"06:20", days:[2,3,4,5,6]},
+    {no:"QR1427", from:"DOH", to:"ADD", dep:"19:30", arr:"00:05", days:[1,4,6]},
+    {no:"QR976",  from:"DOH", to:"HAN", dep:"01:50", arr:"12:20", days:ALLDAYS},
+    {no:"QR151",  from:"DOH", to:"MAD", dep:"14:20", arr:"20:20", days:ALLDAYS}
+  ]
+};
+
+/* exchange sessions, in each venue's own local time */
+const SESSIONS = [
+  {code:"TSE",   city:"Tokyo",        tz:"Asia/Tokyo",        o:"09:00", c:"15:30", col:"#f87171", flag:"🇯🇵"},
+  {code:"SSE",   city:"Shanghai",     tz:"Asia/Shanghai",     o:"09:30", c:"15:00", col:"#fb923c", flag:"🇨🇳"},
+  {code:"NSE",   city:"Mumbai",       tz:"Asia/Kolkata",      o:"09:15", c:"15:30", col:"#fbbf24", flag:"🇮🇳"},
+  {code:"MOEX",  city:"Moscow",       tz:"Europe/Moscow",     o:"10:00", c:"18:40", col:"#34d399", flag:"🇷🇺"},
+  {code:"JSE",   city:"Johannesburg", tz:"Africa/Johannesburg",o:"09:00",c:"17:00", col:"#22d3ee", flag:"🇿🇦"},
+  {code:"LSE",   city:"London",       tz:"Europe/London",     o:"08:00", c:"16:30", col:"#60a5fa", flag:"🇬🇧"},
+  {code:"NYSE",  city:"New York",     tz:"America/New_York",  o:"09:30", c:"16:00", col:"#a78bfa", flag:"🇺🇸"},
+  {code:"B3",    city:"São Paulo",    tz:"America/Sao_Paulo", o:"10:00", c:"17:00", col:"#f472b6", flag:"🇧🇷"}
+];
+
+const WORLD_CLOCKS = [
+  {label:"Bangkok", tz:TZ, home:true},
+  {label:"UTC",     tz:"UTC"},
+  {label:"Yangon",  tz:"Asia/Yangon"},
+  {label:"Doha",    tz:"Asia/Qatar"},          // IANA name for Doha; "Asia/Doha" does not exist
+  {label:"London",  tz:"Europe/London"},
+  {label:"New York",tz:"America/New_York"}
+];
+
+/* ============================================================
+   2. TIME HELPERS (timezone-correct, DST-aware)
+   ============================================================ */
+const partsCache = new Map();
+function tzParts(tz, date){
+  let f = partsCache.get(tz);
+  if(!f){
+    f = new Intl.DateTimeFormat("en-GB",{timeZone:tz,hour12:false,year:"numeric",month:"2-digit",
+        day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",weekday:"short"});
+    partsCache.set(tz,f);
+  }
+  const o = {};
+  for(const p of f.formatToParts(date)) o[p.type] = p.value;
+  o.hour = o.hour === "24" ? "00" : o.hour;
+  return o;
+}
+/** offset of tz from UTC, in minutes, at the given instant */
+function tzOffset(tz, date){
+  const p = tzParts(tz, date);
+  const asUTC = Date.UTC(+p.year, p.month-1, +p.day, +p.hour, +p.minute, +p.second);
+  return (asUTC - Math.floor(date.getTime()/1000)*1000) / 60000;
+}
+function hm(str){ const [h,m] = str.split(":").map(Number); return h*60+m; }
+function fmtHM(mins){
+  mins = ((mins % 1440) + 1440) % 1440;
+  return String(Math.floor(mins/60)).padStart(2,"0") + ":" + String(mins%60).padStart(2,"0");
+}
+function durTxt(mins){
+  const h = Math.floor(mins/60), m = mins%60;
+  return (h ? h+"h" : "") + (m ? (h?" ":"")+m+"m" : (h?"":"0m"));
+}
+/** minutes-of-day right now in the given tz (fractional, with seconds) */
+function minsNow(tz, date){
+  const p = tzParts(tz, date);
+  return +p.hour*60 + +p.minute + +p.second/60;
+}
+/** a wall-clock date+time in `tz` -> UTC instant (ms). Two passes settle DST edges. */
+function wallToUTC(tz, y, mo, d, mins){
+  const h = Math.floor(mins/60), mi = mins%60;
+  let guess = Date.UTC(y, mo-1, d, h, mi) - tzOffset(tz, new Date(Date.UTC(y, mo-1, d, h, mi)))*60000;
+  guess = Date.UTC(y, mo-1, d, h, mi) - tzOffset(tz, new Date(guess))*60000;
+  return guess;
+}
+/** civil date in `tz` for an instant, plus ISO weekday 1..7 (Mon..Sun) */
+function tzDate(tz, date){
+  const p = tzParts(tz, date);
+  const wd = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].indexOf(p.weekday) + 1;
+  return {y:+p.year, m:+p.month, d:+p.day, wd: wd || 7};
+}
+/** convert a wall-clock time at venue tz into Bangkok minutes-of-day */
+function toHomeMins(venueTz, wall, date){
+  const diff = tzOffset(TZ, date) - tzOffset(venueTz, date);   // minutes
+  return ((hm(wall) + diff) % 1440 + 1440) % 1440;
+}
+
+/* ============================================================
+   3. SVG GEOMETRY
+   ============================================================ */
+const CX = 330, CY = 330;
+const NS = "http://www.w3.org/2000/svg";
+const pol = (r, mins) => {                 // 0:00 at top, clockwise
+  const a = (mins/1440)*2*Math.PI - Math.PI/2;
+  return [CX + r*Math.cos(a), CY + r*Math.sin(a)];
+};
+function ring(r0, r1, m0, m1){
+  let span = m1 - m0; if(span <= 0) span += 1440;
+  if(span >= 1439.9) span = 1439.9;
+  const m1b = m0 + span, big = span > 720 ? 1 : 0;
+  const [ax,ay] = pol(r1,m0), [bx,by] = pol(r1,m1b),
+        [cx,cy] = pol(r0,m1b), [dx,dy] = pol(r0,m0);
+  return `M${ax} ${ay}A${r1} ${r1} 0 ${big} 1 ${bx} ${by}L${cx} ${cy}A${r0} ${r0} 0 ${big} 0 ${dx} ${dy}Z`;
+}
+function el(tag, attrs, parent){
+  const n = document.createElementNS(NS, tag);
+  for(const k in attrs) n.setAttribute(k, attrs[k]);
+  if(parent) parent.appendChild(n);
+  return n;
+}
+
+/* ---- static dial: hour ticks + labels ---- */
+(function drawTicks(){
+  const g = document.getElementById("ticks");
+  for(let h=0; h<24; h++){
+    const m = h*60, major = h%6===0;
+    const [x1,y1] = pol(204, m), [x2,y2] = pol(major?192:196, m);
+    el("line",{x1,y1,x2,y2,stroke:major?"#3d5578":"#243247","stroke-width":major?2:1},g);
+    const [lx,ly] = pol(184, m+30);
+    const t = el("text",{x:lx,y:ly+4,"text-anchor":"middle",class:"tick-lbl"+(major?" major":"")},g);
+    t.textContent = String(h).padStart(2,"0");
+    const [ux,uy] = pol(168, m+30);
+    const u = el("text",{x:ux,y:uy+3,"text-anchor":"middle",class:"tick-utc"},g);
+    u.textContent = String((h+17)%24).padStart(2,"0") + "z";   // UTC = BKK - 7
+  }
+})();
+
+/* ---- schedule ring (redrawn whenever the routine is edited) ---- */
+function drawSchedule(){
+  const g = document.getElementById("schedRing");
+  g.textContent = "";
+  el("circle",{cx:CX,cy:CY,r:230,fill:"none",stroke:"#141d2c","stroke-width":44},g);
+  SCHEDULE.forEach((b, i) => {
+    const m0 = hm(b.s), m1 = hm(b.e);
+    const p = el("path",{d:ring(208,252,m0,m1),fill:b.hex,opacity:.82,stroke:"#0b0f19","stroke-width":1.4},g);
+    p.dataset.idx = i;
+    el("title",{},p).textContent = `${b.name} · ${b.s}–${b.e}`;
+    let span = m1-m0; if(span<=0) span += 1440;
+    if(span >= 55){
+      let mid = m0 + span/2;
+      const [tx,ty] = pol(230, mid);
+      let rot = (mid/1440)*360;
+      if(rot > 90 && rot < 270) rot += 180;
+      const t = el("text",{x:tx,y:ty+3.5,"text-anchor":"middle",class:"arc-lbl",
+                           transform:`rotate(${rot} ${tx} ${ty})`},g);
+      t.textContent = (b.short || b.name).toUpperCase();
+    }
+  });
+}
+
+/* ---- session rings (recomputed on load; DST-correct) ---- */
+function drawSessions(){
+  const g = document.getElementById("sessRing");
+  g.textContent = "";
+  const now = new Date();
+  SESSIONS.forEach((s, i) => {
+    const r1 = 318 - i*8, r0 = r1 - 6;
+    const m0 = toHomeMins(s.tz, s.o, now), m1 = toHomeMins(s.tz, s.c, now);
+    el("circle",{cx:CX,cy:CY,r:(r0+r1)/2,fill:"none",stroke:"#111a28","stroke-width":6},g);
+    const p = el("path",{d:ring(r0,r1,m0,m1),fill:s.col,opacity:.9},g);
+    p.dataset.code = s.code;
+    el("title",{},p).textContent = `${s.city} (${s.code}) · ${fmtHM(m0)}–${fmtHM(m1)} Bangkok`;
+  });
+}
+drawSessions();
+
+/* ---- fear & greed gauge (static frame) ---- */
+(function drawGaugeFrame(){
+  const g = document.getElementById("fngGauge");
+  const bands = [[0,25,"#ef4444"],[25,45,"#f97316"],[45,55,"#eab308"],[55,75,"#84cc16"],[75,100,"#22c55e"]];
+  const R = 78, r = 56, cx = 100, cy = 100;
+  const P = (rad, v) => {
+    const a = Math.PI + (v/100)*Math.PI;
+    return [cx + rad*Math.cos(a), cy + rad*Math.sin(a)];
+  };
+  bands.forEach(([a,b,col]) => {
+    const [x1,y1] = P(R,a), [x2,y2] = P(R,b), [x3,y3] = P(r,b), [x4,y4] = P(r,a);
+    el("path",{d:`M${x1} ${y1}A${R} ${R} 0 0 1 ${x2} ${y2}L${x3} ${y3}A${r} ${r} 0 0 0 ${x4} ${y4}Z`,
+               fill:col,opacity:.85},g);
+  });
+  [0,25,50,75,100].forEach(v => {
+    const [x,y] = P(88,v);
+    const t = el("text",{x,y:y+3,"text-anchor":"middle",fill:"#64748b",
+                         style:"font:600 8px ui-monospace,monospace"},g);
+    t.textContent = v;
+  });
+  el("line",{id:"fngNeedle",x1:cx,y1:cy,x2:cx-70,y2:cy,stroke:"#e6edf7","stroke-width":3,
+             "stroke-linecap":"round",filter:"url(#glow)"},g);
+  el("circle",{cx,cy,r:6,fill:"#e6edf7"},g);
+})();
+
+/* ============================================================
+   4. LIVE TICK — hand, core readout, timeline, sessions
+   ============================================================ */
+function currentBlock(mins){
+  for(let i=0;i<SCHEDULE.length;i++){
+    const b = SCHEDULE[i];
+    let m0 = hm(b.s), m1 = hm(b.e);
+    if(m1 <= m0){ if(mins >= m0 || mins < m1) return i; }
+    else if(mins >= m0 && mins < m1) return i;
+  }
+  return 0;
+}
+function blockSpan(b){ let s = hm(b.e) - hm(b.s); return s <= 0 ? s + 1440 : s; }
+
+function sessionState(s, now){
+  const m0 = toHomeMins(s.tz, s.o, now), m1 = toHomeMins(s.tz, s.c, now);
+  const mins = minsNow(TZ, now);
+  let open;
+  if(m1 <= m0) open = mins >= m0 || mins < m1; else open = mins >= m0 && mins < m1;
+  const p = tzParts(s.tz, now);
+  const weekend = p.weekday === "Sat" || p.weekday === "Sun";
+  let to = (open ? m1 : m0) - mins; if(to < 0) to += 1440;
+  return {open: open && !weekend, weekend, m0, m1, to};
+}
+
+const $ = id => document.getElementById(id);
+let lastMinuteKey = "";
+
+function tick(){
+  const now = new Date();
+  const mins = minsNow(TZ, now);
+  const p = tzParts(TZ, now);
+
+  /* world clocks */
+  const zs = WORLD_CLOCKS.map(z => {
+    const q = tzParts(z.tz, now);
+    return `<div class="zone${z.home?" home":""}">
+      <div class="z-name">${z.label}</div>
+      <div class="z-time mono">${q.hour}:${q.minute}<span style="font-size:10px;color:var(--txt3)">:${q.second}</span></div>
+    </div>`;
+  }).join("");
+  $("zones").innerHTML = zs;
+
+  /* hand */
+  const hand = $("hand"); hand.textContent = "";
+  const [hx,hy] = pol(320, mins);
+  el("line",{x1:CX,y1:CY,x2:hx,y2:hy,stroke:"#22d3ee","stroke-width":2,opacity:.85,filter:"url(#glow)"},hand);
+  const [mx,my] = pol(327, mins);
+  el("circle",{cx:mx,cy:my,r:5.5,fill:"#22d3ee",filter:"url(#glow)"},hand);
+
+  /* core readout */
+  const idx = currentBlock(mins), b = SCHEDULE[idx];
+  const nb = SCHEDULE[(idx+1) % SCHEDULE.length];
+  let elapsed = mins - hm(b.s); if(elapsed < 0) elapsed += 1440;
+  const span = blockSpan(b), left = span - elapsed;
+
+  const core = $("core"); core.textContent = "";
+  const tTime = el("text",{x:CX,y:CY-42,"text-anchor":"middle",class:"center-time"},core);
+  tTime.textContent = `${p.hour}:${p.minute}`;
+  const tSec = el("text",{x:CX,y:CY-18,"text-anchor":"middle",class:"center-sec"},core);
+  tSec.textContent = p.second;
+  const u = tzParts("UTC", now);
+  const tLbl = el("text",{x:CX,y:CY+4,"text-anchor":"middle",class:"center-lbl"},core);
+  tLbl.textContent = `${u.hour}:${u.minute} UTC`;
+  const tAct = el("text",{x:CX,y:CY+32,"text-anchor":"middle",class:"center-act",fill:b.hex},core);
+  tAct.textContent = b.name;
+  const tSub = el("text",{x:CX,y:CY+53,"text-anchor":"middle",class:"center-sub"},core);
+  tSub.textContent = `${b.s} – ${b.e}  ·  ${durTxt(Math.round(left))} left`;
+  const tNxt = el("text",{x:CX,y:CY+80,"text-anchor":"middle",class:"center-sub",fill:"#7f90a8"},core);
+  tNxt.textContent = `NEXT · ${nb.name} @ ${nb.s}`;
+  el("rect",{x:CX-70,y:CY+92,width:140,height:5,rx:2.5,fill:"#16202f"},core);
+  el("rect",{x:CX-70,y:CY+92,width:Math.max(2,140*(elapsed/span)),height:5,rx:2.5,fill:b.hex},core);
+
+  /* right panel */
+  $("curName").textContent = b.name;
+  $("curTime").textContent = `${b.s} – ${b.e} · ${durTxt(Math.round(left))} remaining`;
+  $("curProg").style.width = (100*elapsed/span) + "%";
+  $("nextName").textContent = nb.name;
+  const secLeft = Math.round(left*60);
+  $("nextIn").textContent = `in ${String(Math.floor(secLeft/3600)).padStart(2,"0")}:${String(Math.floor(secLeft%3600/60)).padStart(2,"0")}:${String(secLeft%60).padStart(2,"0")}`;
+  $("nextProg").style.width = (100*elapsed/span) + "%";
+  $("curNote").textContent = b.note;
+  $("dayPill").textContent = `${p.weekday} ${p.day}/${p.month}/${p.year}`;
+
+  /* schedule ring highlight */
+  document.querySelectorAll("#schedRing path").forEach(pth => {
+    const on = +pth.dataset.idx === idx;
+    pth.setAttribute("opacity", on ? 1 : .55);
+    pth.setAttribute("stroke", on ? "#ffffff" : "#0b0f19");
+    pth.setAttribute("stroke-width", on ? 2 : 1.4);
+  });
+
+  /* once-a-minute work */
+  const key = p.hour + p.minute;
+  if(key !== lastMinuteKey){
+    lastMinuteKey = key;
+    renderTimeline(idx, mins);
+    renderSessions(now);
+  }
+}
+
+function renderTimeline(idx, mins){
+  const rows = SCHEDULE.map((b,i) => {
+    const span = blockSpan(b);
+    let cls = "tl-item";
+    if(i === idx) cls += " active";
+    else {
+      let m0 = hm(b.s), end = m0 + span;
+      const passed = (mins >= end) || (end > 1440 && mins >= end-1440 && mins < m0);
+      if(passed && i < idx) cls += " done";
+    }
+    return `<div class="${cls}">
+      <span class="sw" style="background:${b.hex}"></span>
+      <span class="tm mono">${b.s} – ${b.e}</span>
+      <span class="nm">${b.name}</span>
+      <span class="dur">${durTxt(span)}</span>
+    </div>`;
+  }).join("");
+  $("timeline").innerHTML = rows;
+  $("tlPill").textContent = SCHEDULE.length + " blocks";
+}
+
+function renderSessions(now){
+  let openCount = 0;
+  const state = {};
+  const rows = SESSIONS.map(s => {
+    const st = sessionState(s, now);
+    state[s.code] = st;
+    if(st.open) openCount++;
+    const status = st.weekend
+      ? `<span class="pill">weekend</span>`
+      : st.open ? `<span class="pill ok">open · closes in ${durTxt(Math.round(st.to))}</span>`
+                : `<span class="pill">opens in ${durTxt(Math.round(st.to))}</span>`;
+    return `<tr>
+      <td><span class="sw" style="display:inline-block;width:9px;height:9px;border-radius:2px;background:${s.col};margin-right:8px"></span><span class="flag">${s.flag}</span><b>${s.city}</b> <span style="color:var(--txt3);font-size:11px">${s.code}</span></td>
+      <td class="mono" style="color:var(--txt2)">${fmtHM(st.m0)}–${fmtHM(st.m1)}</td>
+      <td style="text-align:right">${status}</td>
+    </tr>`;
+  }).join("");
+  document.querySelectorAll("#sessRing path").forEach(p => {
+    const st = state[p.dataset.code];
+    p.setAttribute("opacity", st && st.open ? 1 : .38);
+  });
+  $("sessTable").querySelector("tbody").innerHTML = rows;
+  $("sessPill").textContent = openCount ? `${openCount} market${openCount>1?"s":""} open` : "all closed";
+  $("sessPill").className = "pill" + (openCount ? " ok" : "");
+}
+
+/* ---- routine storage: load, normalise, redraw ---------------------------- */
+const LS = {routine:"m24.routine.v1", flights:"m24.flights.v1", checks:"m24.checks.v1", key:"m24.adbKey"};
+function lsGet(k, fallback){
+  try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : fallback; }catch(e){ return fallback; }
+}
+function lsSet(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+function lsDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+/* storage is unavailable in some embeds (third-party cookie blocking) and on data: URLs,
+   so every access goes through these guards — the page must still render without it. */
+function keyGet(){ try{ return localStorage.getItem(LS.key) || ""; }catch(e){ return ""; } }
+function keySet(v){ try{ v ? localStorage.setItem(LS.key, v) : localStorage.removeItem(LS.key); }catch(e){} }
+
+/** sort by start time and derive each block's end from the next block's start */
+function applyRoutine(list){
+  const clean = (list || []).filter(b => b && /^\d{2}:\d{2}$/.test(b.s) && b.name);
+  if(clean.length < 2){ SCHEDULE = DEFAULT_ROUTINE.slice(); }
+  else {
+    clean.sort((a,b) => hm(a.s) - hm(b.s));
+    SCHEDULE = clean.map((b,i) => {
+      const nxt = clean[(i+1) % clean.length];
+      const short = b.short || (b.name.length <= 12 ? b.name : b.name.split(/\s+/)[0]);
+      return {s:b.s, e:nxt.s, name:b.name, short, hex:b.hex || "#3b82f6", note:b.note || ""};
+    });
+  }
+  drawSchedule();
+  lastMinuteKey = "";        // force the timeline to re-render on the next tick
+}
+applyRoutine(lsGet(LS.routine, DEFAULT_ROUTINE));
+
+tick();
+setInterval(tick, 1000);
+setInterval(drawSessions, 60*60*1000);   // re-draw arcs hourly so DST flips are picked up
+
+/* ============================================================
+   5. DATA — daily snapshot + live top-up
+   ============================================================ */
+/* always an object so the in-browser refresh can fill it in when no snapshot exists */
+const BRIEF = window.__BRIEF__ || {news:null, quotes:{}, fx:{}, fng:null, generated:null};
+
+function relTime(iso){
+  if(!iso) return "";
+  const d = new Date(iso);
+  if(isNaN(d)) return "";
+  const mn = Math.round((Date.now() - d.getTime())/60000);
+  if(mn < 1) return "just now";
+  if(mn < 60) return mn + "m ago";
+  const h = Math.round(mn/60);
+  if(h < 24) return h + "h ago";
+  return Math.round(h/24) + "d ago";
+}
+function esc(s){ return String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function num(v, dp){
+  if(v === null || v === undefined || isNaN(v)) return "—";
+  return Number(v).toLocaleString("en-US",{minimumFractionDigits:dp,maximumFractionDigits:dp});
+}
+function pct(v){
+  if(v === null || v === undefined || isNaN(v)) return {t:"—", c:"flat-t", k:""};
+  const s = (v>=0?"+":"") + v.toFixed(2) + "%";
+  return {t:s, c: v>0.001 ? "up-t" : v<-0.001 ? "dn-t" : "flat-t", k: v>0.001 ? "up" : v<-0.001 ? "dn" : ""};
+}
+
+/* ---------- news ---------- */
+function renderNews(){
+  const cats = [["brics","f-brics","p-brics"],["geo","f-geo","p-geo"],["markets","f-markets","p-mkt"]];
+  if(!BRIEF || !BRIEF.news){
+    cats.forEach(([k,fid,pid]) => {
+      $(pid).textContent = "no snapshot";
+      $(pid).className = "pill warn";
+      $(fid).innerHTML = `<div class="empty">
+        No daily snapshot found yet. Run the updater once (it refreshes news, markets and the Fear &amp; Greed history):
+        <br><code>powershell -ExecutionPolicy Bypass -File update.ps1</code>
+        <br><span style="color:var(--txt3);font-size:11.5px">Then reload this page. Schedule it daily with Task Scheduler, or use the included GitHub Action.</span>
+      </div>`;
+    });
+    $("newsStamp").textContent = "snapshot missing — run update.ps1";
+    return;
+  }
+  cats.forEach(([k,fid,pid]) => {
+    const items = BRIEF.news[k] || [];
+    $(pid).textContent = items.length + " stories";
+    $(pid).className = "pill ok";
+    $(fid).innerHTML = items.map(it => {
+      const age = relTime(it.published);
+      const fresh = it.published && (Date.now() - new Date(it.published).getTime()) < 6*3600*1000;
+      return `<a class="item" href="${esc(it.link)}" target="_blank" rel="noopener noreferrer">
+        <div class="t">${esc(it.title)}</div>
+        <div class="m"><span class="src">${esc(it.source||"news")}</span>${age?`<span>· ${age}</span>`:""}${fresh?`<span class="badge-new">NEW</span>`:""}</div>
+      </a>`;
+    }).join("") || `<div class="empty">Nothing pulled for this desk in the last run.</div>`;
+  });
+  const t = BRIEF.generated ? new Date(BRIEF.generated) : null;
+  $("newsStamp").textContent = t ? `snapshot ${t.toLocaleString("en-GB",{timeZone:TZ,day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"})} (Bangkok) · ${relTime(BRIEF.generated)}` : "";
+}
+
+/* ---------- market cards ---------- */
+const CARD_ORDER = [
+  ["^GSPC","S&P 500","US"],["^IXIC","Nasdaq","US"],["^HSI","Hang Seng","HK"],["000001.SS","Shanghai","CN"],
+  ["^NSEI","Nifty 50","IN"],["^BVSP","Bovespa","BR"],["GC=F","Gold","XAU"],["BZ=F","Brent","OIL"],
+  ["DX-Y.NYB","Dollar Index","DXY"],["^TNX","US 10Y","YIELD"],["BTC-USD","Bitcoin","BTC"],["ETH-USD","Ethereum","ETH"]
+];
+function renderMarkets(live){
+  const q = (BRIEF && BRIEF.quotes) || {};
+  if(live){ Object.assign(q, live); }
+  const html = CARD_ORDER.map(([sym,name,tag]) => {
+    const d = q[sym];
+    const ch = d ? pct(d.changePct) : pct(null);
+    const dp = d && Math.abs(d.price) < 20 ? 3 : Math.abs((d&&d.price)||0) > 5000 ? 0 : 2;
+    return `<div class="mkt ${ch.k}">
+      <div class="m-n"><span>${name}</span><em>${tag}</em></div>
+      <div class="m-p">${d ? num(d.price, dp) : "—"}</div>
+      <div class="m-c ${ch.c}">${ch.t}</div>
+    </div>`;
+  }).join("");
+  $("mktGrid").innerHTML = html;
+  const stamp = (BRIEF && BRIEF.generated) ? relTime(BRIEF.generated) : "";
+  $("mktStamp").textContent = live ? `crypto live · indices from snapshot ${stamp}` : (stamp ? `snapshot ${stamp}` : "waiting for data");
+}
+function renderFX(){
+  const fx = (BRIEF && BRIEF.fx) || {};
+  const rows = [
+    ["USDCNY=X","🇨🇳","Chinese Yuan","CNY"],["INR=X","🇮🇳","Indian Rupee","INR"],
+    ["USDRUB=X","🇷🇺","Russian Ruble","RUB"],["USDBRL=X","🇧🇷","Brazilian Real","BRL"],
+    ["USDZAR=X","🇿🇦","South African Rand","ZAR"],["USDTHB=X","🇹🇭","Thai Baht","THB"]
+  ];
+  const body = rows.map(([sym,flag,name,code]) => {
+    const d = fx[sym]; const ch = d ? pct(d.changePct) : pct(null);
+    return `<tr>
+      <td><span class="flag">${flag}</span>${name} <span style="color:var(--txt3);font-size:11px">${code}</span></td>
+      <td class="mono" style="text-align:right">${d ? num(d.price, 4) : "—"}</td>
+      <td class="mono ${ch.c}" style="text-align:right">${ch.t}</td>
+    </tr>`;
+  }).join("");
+  $("fxTable").querySelector("tbody").innerHTML =
+    `<tr><th>Currency</th><th style="text-align:right">Per USD</th><th style="text-align:right">1D</th></tr>` + body;
+  $("fxPill").textContent = Object.keys(fx).length ? "daily" : "no data";
+  $("fxPill").className = "pill" + (Object.keys(fx).length ? "" : " warn");
+}
+
+/* ---------- fear & greed ---------- */
+function renderFNG(data){
+  if(!data || !data.length){
+    $("fngPill").textContent = "unavailable"; $("fngPill").className = "pill err"; return;
+  }
+  const cur = data[0], v = +cur.value;
+  $("fngVal").textContent = v;
+  $("fngCls").textContent = cur.value_classification;
+  const col = v<25?"#ef4444":v<45?"#f97316":v<55?"#eab308":v<75?"#84cc16":"#22c55e";
+  $("fngVal").style.color = col; $("fngCls").style.color = col;
+  $("fngPill").textContent = "updated daily"; $("fngPill").className = "pill ok";
+
+  const a = Math.PI + (v/100)*Math.PI;
+  const n = $("fngNeedle");
+  n.setAttribute("x2", 100 + 70*Math.cos(a));
+  n.setAttribute("y2", 100 + 70*Math.sin(a));
+
+  const pick = (i,lbl) => data[i] ? `<div>${lbl}<b>${data[i].value}</b></div>` : "";
+  $("fngHist").innerHTML = pick(1,"Yesterday") + pick(7,"Last week") + pick(29,"Last month");
+
+  const spark = $("fngSpark"); spark.textContent = "";
+  const series = data.slice(0, 30).reverse().map(d => +d.value);
+  if(series.length > 2){
+    const W = 300, H = 54, mn = Math.min(...series)-3, mx = Math.max(...series)+3;
+    const pt = i => [ (i/(series.length-1))*W, H - ((series[i]-mn)/(mx-mn))*(H-8) - 4 ];
+    let d = "M" + pt(0).join(" ");
+    for(let i=1;i<series.length;i++) d += "L" + pt(i).join(" ");
+    el("path",{d:d+`L${W} ${H}L0 ${H}Z`,fill:col,opacity:.13},spark);
+    el("path",{d,fill:"none",stroke:col,"stroke-width":2,"stroke-linejoin":"round"},spark);
+    const [lx,ly] = pt(series.length-1);
+    el("circle",{cx:lx,cy:ly,r:3.2,fill:col},spark);
+  }
+}
+
+/* ---------- live fetches (CORS-friendly, work from file:// too) ---------- */
+async function loadLive(){
+  /* Fear & Greed — always live, falls back to the snapshot */
+  try{
+    const r = await fetch("https://api.alternative.me/fng/?limit=30&format=json", {cache:"no-store"});
+    const j = await r.json();
+    renderFNG(j.data);
+  }catch(e){
+    renderFNG(BRIEF && BRIEF.fng);
+  }
+  /* crypto — live prices layered over the daily snapshot */
+  try{
+    const r = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true",{cache:"no-store"});
+    const j = await r.json();
+    renderMarkets({
+      "BTC-USD":{price:j.bitcoin.usd,  changePct:j.bitcoin.usd_24h_change},
+      "ETH-USD":{price:j.ethereum.usd, changePct:j.ethereum.usd_24h_change}
+    });
+  }catch(e){ renderMarkets(null); }
+}
+
+/* ============================================================
+   6. FLIGHT WATCHLIST
+   ============================================================ */
+const MONTHS = ["January","February","March","April","May","June",
+                "July","August","September","October","November","December"];
+let FLIGHTS = lsGet(LS.flights, null) || JSON.parse(JSON.stringify(DEFAULT_FLIGHTS));
+let CHECKS  = lsGet(LS.checks, {});
+let flMonth = (function(){
+  const m = +tzParts(TZ, new Date()).month;
+  if(FLIGHTS[m] && FLIGHTS[m].length) return m;
+  const first = Object.keys(FLIGHTS).find(k => FLIGHTS[k] && FLIGHTS[k].length);
+  return first ? +first : m;
+})();
+
+function ap(code){
+  return AIRPORTS[code] || (code ? {city:code, country:"—", flag:"✈", tz:null} : null);
+}
+
+/** every departure of this flight from yesterday to +2 days, as UTC instants */
+function occurrences(f, now){
+  const org = AIRPORTS[f.from], dst = AIRPORTS[f.to];
+  if(!org || !dst || !/^\d{2}:\d{2}$/.test(f.dep||"") || !/^\d{2}:\d{2}$/.test(f.arr||"")) return null;
+  const base = tzDate(org.tz, now), out = [];
+  for(let off=-1; off<=2; off++){
+    const civil = new Date(Date.UTC(base.y, base.m-1, base.d + off));
+    const y = civil.getUTCFullYear(), m = civil.getUTCMonth()+1, d = civil.getUTCDate();
+    const wd = ((civil.getUTCDay()+6) % 7) + 1;                   // 1 = Monday
+    if(f.days && f.days.length && f.days.indexOf(wd) === -1) continue;
+    const depUTC = wallToUTC(org.tz, y, m, d, hm(f.dep));
+    let arrUTC   = wallToUTC(dst.tz, y, m, d, hm(f.arr));
+    if(arrUTC <= depUTC) arrUTC = wallToUTC(dst.tz, y, m, d+1, hm(f.arr));   // overnight leg
+    out.push({depUTC, arrUTC, y, m, d});
+  }
+  return out.sort((a,b) => a.depUTC - b.depUTC);
+}
+
+const HOUR = 3600000;
+function flightStatus(f, now){
+  const occ = occurrences(f, now);
+  if(!occ) return {cls:"st-off", txt:"Route not set", sub:"add airports and times in ⚙ Customize"};
+  if(!occ.length) return {cls:"st-off", txt:"Not scheduled", sub:"no operating day in this window"};
+  const t = now.getTime();
+  const o = occ.find(x => t < x.arrUTC + 3*HOUR);
+  if(!o) return {cls:"st-off", txt:"Not scheduled", sub:"next departure is beyond 48 h"};
+
+  const dateTxt = new Date(o.depUTC).toLocaleDateString("en-GB",
+                    {timeZone:AIRPORTS[f.from].tz, weekday:"short", day:"2-digit", month:"short"});
+  if(t < o.depUTC){
+    const mins = Math.round((o.depUTC - t)/60000);
+    if(mins <= 180) return {cls:"st-soon", txt:"Departing soon", sub:`${dateTxt} · wheels-up in ${durTxt(mins)}`};
+    return {cls:"st-sch", txt:"Scheduled", sub:`${dateTxt} · departs in ${durTxt(mins)}`};
+  }
+  if(t < o.arrUTC){
+    const total = o.arrUTC - o.depUTC, done = t - o.depUTC;
+    return {cls:"st-air", txt:"In the air",
+            sub:`lands in ${durTxt(Math.round((o.arrUTC - t)/60000))}`,
+            prog: Math.max(2, Math.round(100*done/total))};
+  }
+  return {cls:"st-land", txt:"Landed", sub:`${durTxt(Math.round((t - o.arrUTC)/60000))} ago`};
+}
+
+/** optional live status (RapidAPI AeroDataBox). No key -> schedule mode. */
+async function fetchLiveFlights(list){
+  const key = keyGet();
+  if(!key) return null;
+  const today = new Date().toISOString().slice(0,10);
+  const out = {};
+  for(const f of list){
+    if(!f.no) continue;
+    try{
+      const r = await fetch(`https://aerodatabox.p.rapidapi.com/flights/number/${encodeURIComponent(f.no)}/${today}`,
+        {headers:{"x-rapidapi-key":key, "x-rapidapi-host":"aerodatabox.p.rapidapi.com"}});
+      if(!r.ok) throw new Error("HTTP " + r.status);
+      const j = await r.json();
+      const leg = Array.isArray(j) ? j[0] : (j.flights ? j.flights[0] : null);
+      if(!leg) continue;
+      const dep = leg.departure || {}, arr = leg.arrival || {};
+      out[f.no] = {
+        status: leg.status || "",
+        depTime: (dep.actualTime || dep.revisedTime || dep.scheduledTime || {}).local || "",
+        arrTime: (arr.actualTime || arr.revisedTime || arr.scheduledTime || {}).local || "",
+        gate: dep.gate || "", terminal: dep.terminal || ""
+      };
+    }catch(e){ out.__error = String(e.message || e); }
+  }
+  return out;
+}
+
+function fr24(no){ return "https://www.flightradar24.com/data/flights/" + String(no||"").toLowerCase().replace(/\s+/g,""); }
+
+let LIVE_FLIGHTS = null;
+function renderFlights(){
+  const sel = $("flMonth");
+  if(!sel.options.length){
+    sel.innerHTML = MONTHS.map((m,i) => `<option value="${i+1}">${m}</option>`).join("");
+  }
+  sel.value = flMonth;
+
+  const list = FLIGHTS[flMonth] || [];
+  const now = new Date();
+  const tb = $("flTable").querySelector("tbody");
+
+  if(!list.length){
+    tb.innerHTML = `<tr><td colspan="6" class="empty">No flights saved for ${MONTHS[flMonth-1]}.
+      Open <b>⚙ Customize → Flights</b> to add them, or copy another month.</td></tr>`;
+    $("flPill").textContent = "empty"; $("flPill").className = "pill warn";
+    $("flWarn").innerHTML = ""; return;
+  }
+
+  let head = `<tr><th style="width:26px"></th><th style="width:96px">Flight</th><th>Route</th>
+              <th style="width:150px">Departs / Arrives</th><th style="width:190px">Status</th><th style="width:78px"></th></tr>`;
+  let needVerify = false, airborne = 0;
+
+  const rows = list.map((f, i) => {
+    const o = ap(f.from), d = ap(f.to);
+    const st = flightStatus(f, now);
+    const live = LIVE_FLIGHTS && LIVE_FLIGHTS[f.no];
+    if(st.cls === "st-air") airborne++;
+    if(f.verify || !o || !d || !f.dep || !f.arr) needVerify = true;
+    const ckKey = flMonth + ":" + f.no + ":" + i;
+    const checked = CHECKS[ckKey] ? "checked" : "";
+    const dir = f.from === "DOH" ? "outbound" : (f.to === "DOH" ? "inbound" : "");
+    const bkk = (tz, wall) => tz && /^\d{2}:\d{2}$/.test(wall||"")
+        ? fmtHM(toHomeMins(tz, wall, now)) : "—";
+
+    return `<tr class="${checked?"done":""}" data-ck="${esc(ckKey)}">
+      <td><input class="chk" type="checkbox" ${checked} data-ck="${esc(ckKey)}" title="tick when you've confirmed this flight"></td>
+      <td class="fl-no">${esc(f.no)}<small>${dir}</small></td>
+      <td><div class="rt">
+        <div class="ap"><b>${o ? o.flag + " " + esc(o.city) : "—"}</b><span>${o ? esc(o.country) : "set origin"}</span></div>
+        <div class="ar">→</div>
+        <div class="ap"><b>${d ? d.flag + " " + esc(d.city) : "—"}</b><span>${d ? esc(d.country) : "set destination"}</span></div>
+      </div></td>
+      <td class="tm-cell">${esc(f.dep||"--:--")} <em>${o?esc(f.from):""}</em><br>
+          ${esc(f.arr||"--:--")} <em>${d?esc(f.to):""}</em><br>
+          <em>${bkk(o&&o.tz, f.dep)} → ${bkk(d&&d.tz, f.arr)} BKK</em></td>
+      <td><div class="st ${st.cls}">${live && live.status ? esc(live.status) : st.txt}
+            <div class="st-sub">${live && live.depTime ? "live · dep " + esc(live.depTime.slice(11,16)) : esc(st.sub)}</div></div>
+          ${st.prog ? `<div class="fl-prog"><i style="width:${st.prog}%"></i></div>` : ""}</td>
+      <td><a class="lnk" href="${fr24(f.no)}" target="_blank" rel="noopener noreferrer">Live ↗</a></td>
+    </tr>`;
+  }).join("");
+
+  tb.innerHTML = head + rows;
+  $("flPill").textContent = airborne ? `${airborne} in the air` : `${list.length} flights`;
+  $("flPill").className = "pill" + (airborne ? " ok" : "");
+  $("flStamp").textContent = keyGet()
+      ? "live status via AeroDataBox" : "status computed from your saved schedule";
+
+  const warn = [];
+  if(needVerify) warn.push(`Some rows are missing a route or times — open <b>⚙ Customize → Flights</b> to fill them in.`);
+  if(LIVE_FLIGHTS && LIVE_FLIGHTS.__error) warn.push(`Live lookup failed (<b>${esc(LIVE_FLIGHTS.__error)}</b>) — showing schedule-based status.`);
+  if(!keyGet()) warn.push(`Status here is calculated from the times you saved, not from a live feed. Use the <b>Live ↗</b> link for the real-time position, or add a free AeroDataBox key in ⚙ Customize.`);
+  $("flWarn").innerHTML = warn.length ? `<div class="warnbar">${warn.join("<br>")}</div>` : "";
+
+  tb.querySelectorAll(".chk").forEach(cb => cb.addEventListener("change", e => {
+    const k = e.target.dataset.ck;
+    if(e.target.checked) CHECKS[k] = 1; else delete CHECKS[k];
+    lsSet(LS.checks, CHECKS);
+    e.target.closest("tr").classList.toggle("done", e.target.checked);
+  }));
+}
+
+$("flMonth").addEventListener("change", e => { flMonth = +e.target.value; renderFlights(); });
+$("editFlights").addEventListener("click", () => { openEditor("pFlights"); });
+
+/* ============================================================
+   7. EDITOR
+   ============================================================ */
+function openEditor(panel){
+  $("modalBg").classList.add("on");
+  document.querySelectorAll(".tab").forEach(t => t.classList.toggle("on", t.dataset.panel === (panel||"pRoutine")));
+  document.querySelectorAll(".panel").forEach(p => p.classList.toggle("on", p.id === (panel||"pRoutine")));
+  buildRoutineEditor(); buildFlightEditor();
+}
+$("openEditor").addEventListener("click", () => openEditor("pRoutine"));
+$("closeEditor").addEventListener("click", () => $("modalBg").classList.remove("on"));
+$("modalBg").addEventListener("click", e => { if(e.target === $("modalBg")) $("modalBg").classList.remove("on"); });
+document.addEventListener("keydown", e => { if(e.key === "Escape") $("modalBg").classList.remove("on"); });
+document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => openEditor(t.dataset.panel)));
+
+function flash(){ const p = $("edSaved"); p.style.display = "inline-block"; setTimeout(() => p.style.display = "none", 1600); }
+
+function routineRow(b){
+  return `<tr>
+    <td><input type="time" value="${esc(b.s)}"></td>
+    <td><input type="text" value="${esc(b.name)}" placeholder="Block name"></td>
+    <td><input type="color" value="${esc(b.hex||"#3b82f6")}"></td>
+    <td><input type="text" value="${esc(b.note||"")}" placeholder="optional"></td>
+    <td><button class="del" title="remove">✕</button></td></tr>`;
+}
+function buildRoutineEditor(){
+  const tb = $("edRoutine").querySelector("tbody");
+  tb.innerHTML = SCHEDULE.map(routineRow).join("");
+  tb.querySelectorAll(".del").forEach(b => b.addEventListener("click", e => e.target.closest("tr").remove()));
+}
+$("addBlock").addEventListener("click", () => {
+  const tb = $("edRoutine").querySelector("tbody");
+  tb.insertAdjacentHTML("beforeend", routineRow({s:"12:00", name:"New block", hex:"#22d3ee", note:""}));
+  tb.querySelectorAll(".del").forEach(b => b.onclick = e => e.target.closest("tr").remove());
+});
+$("saveRoutine").addEventListener("click", () => {
+  const rows = [...$("edRoutine").querySelectorAll("tbody tr")].map(tr => {
+    const i = tr.querySelectorAll("input");
+    return {s:i[0].value, name:i[1].value.trim(), hex:i[2].value, note:i[3].value.trim()};
+  }).filter(b => b.s && b.name);
+  if(rows.length < 2){ alert("Keep at least two blocks — the day is drawn as a full 24-hour cycle."); return; }
+  lsSet(LS.routine, rows);
+  applyRoutine(rows);
+  flash();
+});
+$("resetRoutine").addEventListener("click", () => {
+  lsDel(LS.routine);
+  applyRoutine(DEFAULT_ROUTINE);
+  buildRoutineEditor();
+  flash();
+});
+
+const DAYNAMES = ["Mo","Tu","We","Th","Fr","Sa","Su"];
+function flightRow(f){
+  const days = f.days || ALLDAYS;
+  const opts = Object.keys(AIRPORTS).map(c => `<option value="${c}"${c===f.from?" selected":""}>${c}</option>`).join("");
+  const optsTo = Object.keys(AIRPORTS).map(c => `<option value="${c}"${c===f.to?" selected":""}>${c}</option>`).join("");
+  return `<tr>
+    <td><input type="text" value="${esc(f.no||"")}" placeholder="QR836"></td>
+    <td><input list="apList" type="text" value="${esc(f.from||"")}" placeholder="DOH" maxlength="3" style="text-transform:uppercase"></td>
+    <td><input list="apList" type="text" value="${esc(f.to||"")}" placeholder="BKK" maxlength="3" style="text-transform:uppercase"></td>
+    <td><input type="time" value="${esc(f.dep||"")}"></td>
+    <td><input type="time" value="${esc(f.arr||"")}"></td>
+    <td><div class="ed-days">${DAYNAMES.map((d,i) =>
+        `<label><input type="checkbox" value="${i+1}"${days.indexOf(i+1)>=0?" checked":""}><span>${d}</span></label>`).join("")}</div></td>
+    <td><button class="del" title="remove">✕</button></td></tr>`;
+}
+function buildFlightEditor(){
+  const sel = $("edMonth");
+  if(!sel.options.length) sel.innerHTML = MONTHS.map((m,i) => `<option value="${i+1}">${m}</option>`).join("");
+  sel.value = flMonth;
+  if(!document.getElementById("apList")){
+    const dl = document.createElement("datalist"); dl.id = "apList";
+    dl.innerHTML = Object.keys(AIRPORTS).map(c => `<option value="${c}">${AIRPORTS[c].city}</option>`).join("");
+    document.body.appendChild(dl);
+  }
+  const tb = $("edFlights").querySelector("tbody");
+  tb.innerHTML = (FLIGHTS[flMonth] || []).map(flightRow).join("");
+  tb.querySelectorAll(".del").forEach(b => b.addEventListener("click", e => e.target.closest("tr").remove()));
+}
+$("edMonth").addEventListener("change", e => { flMonth = +e.target.value; buildFlightEditor(); renderFlights(); });
+$("addFlight").addEventListener("click", () => {
+  const tb = $("edFlights").querySelector("tbody");
+  tb.insertAdjacentHTML("beforeend", flightRow({no:"", from:"DOH", to:"", dep:"", arr:"", days:ALLDAYS}));
+  tb.querySelectorAll(".del").forEach(b => b.onclick = e => e.target.closest("tr").remove());
+});
+$("saveFlights").addEventListener("click", () => {
+  const rows = [...$("edFlights").querySelectorAll("tbody tr")].map(tr => {
+    const i = tr.querySelectorAll('input[type="text"],input[type="time"]');
+    const days = [...tr.querySelectorAll('.ed-days input:checked')].map(c => +c.value);
+    return {no:i[0].value.trim().toUpperCase(), from:i[1].value.trim().toUpperCase(),
+            to:i[2].value.trim().toUpperCase(), dep:i[3].value, arr:i[4].value, days};
+  }).filter(f => f.no);
+  FLIGHTS[flMonth] = rows;
+  lsSet(LS.flights, FLIGHTS);
+  renderFlights(); flash();
+});
+$("resetFlights").addEventListener("click", () => {
+  FLIGHTS[flMonth] = JSON.parse(JSON.stringify(DEFAULT_FLIGHTS[flMonth] || []));
+  lsSet(LS.flights, FLIGHTS);
+  buildFlightEditor(); renderFlights(); flash();
+});
+$("copyMonth").addEventListener("click", () => {
+  const src = prompt("Copy flights from which month? Enter 1-12 (9 = September)", "9");
+  const n = +src;
+  if(!n || n < 1 || n > 12) return;
+  const from = FLIGHTS[n] || DEFAULT_FLIGHTS[n];
+  if(!from || !from.length){ alert("That month has no flights saved."); return; }
+  FLIGHTS[flMonth] = JSON.parse(JSON.stringify(from));
+  lsSet(LS.flights, FLIGHTS);
+  buildFlightEditor(); renderFlights(); flash();
+});
+$("edKey").value = keyGet();
+$("saveKey").addEventListener("click", async () => {
+  const v = $("edKey").value.trim();
+  keySet(v);
+  flash();
+  LIVE_FLIGHTS = await fetchLiveFlights(FLIGHTS[flMonth] || []);
+  renderFlights();
+});
+
+/* ============================================================
+   8. NEWS — automatic in-browser refresh
+   ============================================================
+   The snapshot in data/brief.js is written by update.ps1. On top of that the page
+   tries to pull the feeds itself through public CORS proxies; when one answers,
+   the desks refresh without anything running on your machine. When none answer
+   (they go down regularly) the snapshot stays on screen and the age pill says so. */
+const PROXIES = [
+  u => "https://api.allorigins.win/raw?url=" + encodeURIComponent(u),
+  u => "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(u),
+  u => "https://api.cors.lol/?url=" + encodeURIComponent(u),
+  u => "https://thingproxy.freeboard.io/fetch/" + u
+];
+const gnews = q => "https://news.google.com/rss/search?q=" + encodeURIComponent(q) + "&hl=en-US&gl=US&ceid=US:en";
+const LIVE_FEEDS = {
+  brics:   [gnews("BRICS when:3d"), gnews('(de-dollarization OR "BRICS summit" OR "New Development Bank") when:7d')],
+  geo:     [gnews("(geopolitics OR sanctions OR tariffs) when:2d"), "https://feeds.bbci.co.uk/news/world/rss.xml"],
+  markets: [gnews('("stock market" OR "Federal Reserve" OR inflation) when:1d'), "https://cointelegraph.com/rss"]
+};
+let goodProxy = null;
+
+async function grab(url, ms){
+  const order = goodProxy ? [goodProxy, ...PROXIES.filter(p => p !== goodProxy)] : PROXIES;
+  for(const p of order){
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), ms);
+    try{
+      const r = await fetch(p(url), {signal:ctl.signal, cache:"no-store"});
+      clearTimeout(timer);
+      if(!r.ok) continue;
+      const txt = await r.text();
+      if(txt.indexOf("<") === -1 || txt.length < 200) continue;
+      goodProxy = p;
+      return txt;
+    }catch(e){ clearTimeout(timer); }
+  }
+  return null;
+}
+function parseRSS(xmlText){
+  const doc = new DOMParser().parseFromString(xmlText, "text/xml");
+  if(doc.querySelector("parsererror")) return [];
+  return [...doc.querySelectorAll("item")].map(it => {
+    const g = t => { const n = it.querySelector(t); return n ? n.textContent.trim() : ""; };
+    let title = g("title"), source = g("source");
+    const m = title.match(/^(.*) - ([^-]{2,40})$/);
+    if(m && !source){ title = m[1].trim(); source = m[2].trim(); }
+    const pub = g("pubDate");
+    const dt = pub ? new Date(pub) : null;
+    return {title, link:g("link"), source: source || "news",
+            published: dt && !isNaN(dt) ? dt.toISOString() : new Date().toISOString()};
+  }).filter(i => i.title && /^https?:/.test(i.link));
+}
+async function refreshNewsLive(){
+  const pill = $("newsStamp");
+  let any = false;
+  for(const desk in LIVE_FEEDS){
+    const items = [];
+    for(const url of LIVE_FEEDS[desk]){
+      const txt = await grab(url, 9000);
+      if(txt) items.push(...parseRSS(txt));
+    }
+    if(items.length < 4) continue;
+    const seen = new Set(), keep = [];
+    for(const i of items.sort((a,b) => new Date(b.published) - new Date(a.published))){
+      const k = i.title.toLowerCase().replace(/[^a-z0-9 ]/g,"").split(/\s+/).slice(0,8).join(" ");
+      if(seen.has(k)) continue;
+      seen.add(k); keep.push(i);
+      if(keep.length >= 18) break;
+    }
+    BRIEF.news = BRIEF.news || {};
+    BRIEF.news[desk] = keep;
+    any = true;
+  }
+  if(any){
+    BRIEF.generated = new Date().toISOString();
+    BRIEF.live = true;
+    renderNews();
+  }
+  stampNews();
+}
+function stampNews(){
+  const el2 = $("newsStamp");
+  if(!BRIEF || !BRIEF.generated){ return; }
+  const ageH = (Date.now() - new Date(BRIEF.generated).getTime())/3600000;
+  const when = new Date(BRIEF.generated).toLocaleString("en-GB",
+      {timeZone:TZ, day:"2-digit", month:"short", hour:"2-digit", minute:"2-digit"});
+  const tag = BRIEF.live ? "refreshed in-browser" : "snapshot";
+  el2.innerHTML = `${tag} ${when} Bangkok · ${relTime(BRIEF.generated)}` +
+    (ageH > 30 && !BRIEF.live
+      ? ` <span class="pill warn" style="margin-left:6px">stale — run update.ps1 or host it with the daily action</span>`
+      : ` <span class="pill ok" style="margin-left:6px">fresh</span>`);
+}
+
+renderNews();
+renderMarkets(null);
+renderFX();
+renderFlights();
+if(BRIEF && BRIEF.fng) renderFNG(BRIEF.fng);
+loadLive();
+stampNews();
+refreshNewsLive();
+setInterval(loadLive, 5*60*1000);
+setInterval(refreshNewsLive, 30*60*1000);
+setInterval(renderFlights, 60*1000);
+(async () => { LIVE_FLIGHTS = await fetchLiveFlights(FLIGHTS[flMonth] || []); if(LIVE_FLIGHTS) renderFlights(); })();
+setInterval(async () => { LIVE_FLIGHTS = await fetchLiveFlights(FLIGHTS[flMonth] || []); if(LIVE_FLIGHTS) renderFlights(); }, 15*60*1000);
+$("reloadBtn").addEventListener("click", () => location.reload());
+</script>
+</body>
+</html>

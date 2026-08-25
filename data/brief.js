@@ -1,0 +1,611 @@
+window.__BRIEF__ = {
+    "generated":  "2026-08-25T09:07:53Z",
+    "news":  {
+                 "brics":  [
+                               {
+                                   "title":  "Ethiopia intends to turn Addis Ababa into African healthcare hub",
+                                   "link":  "https://news.google.com/rss/articles/CBMimAFBVV95cUxQdnZvd0g3TVZwcjRCeEloblpUb3pDM1Uta2N6aTFGcWFybkV6LW5wdlVJMEtldnY3ZG1hU2UyazAwWjB4Y25WQ29kT1BuSF9BY3VRLTJrSWd6bUdwMXZIbFNXTDNoWFR2alpZVmtEMm1zb0NMd3pwZ3FXcVp6ampXeUVOczlXN3JwNEJ6YW5hMExJRUNNVXNxSA?oc=5",
+                                   "source":  "TV BRICS",
+                                   "published":  "2026-08-25T09:00:17Z"
+                               },
+                               {
+                                   "title":  "Study: India’s gig economy is leaving its women behind",
+                                   "link":  "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNM0xiemN6eXRCYVVfS3NaMFdkdTFaUTQ2MG1PTTV0R2JtcWhoZjJfaVFrTklZUjhjUEhRQ2JnUVhrTzBnZ0NxQVl2Q0FqMElQbXhSYmdORFRFNHlQYlBkZkZVTzhYY2JYdGlXZDNLTlllNHY0ZmtPV2RmZ2s5ZEotMDRGNUJjTlBlWDhlaGZpbHpCblJEMjZCME1DSGdzVFF4U2Y2djcxRlQ?oc=5",
+                                   "source":  "The Star",
+                                   "published":  "2026-08-25T09:00:00Z"
+                               },
+                               {
+                                   "title":  "Ajit Doval, Wang Yi hold border talks ahead of Xi Jinping\u0027s India visit",
+                                   "link":  "https://news.google.com/rss/articles/CBMiugFBVV95cUxORDBUZlBpRXJULWN6dGZUSng1VjlFWjYyT2RCTWJyS05RVDAxWUdnaXVINHFScW9tX3dXVHF5VVphSGZHM2hXbG9sUmhlcm9mSWpLSHpDWm1YcXhCNW41anhUY1RsaGdpZm1PTTZqM0xTUENmRDR6QzkxRVNyVnE3YzJsOWdKUjlTUXBqWXcwYTNqSTJUWjJpcURwNEE5WlV0TTBzdFB2MUZBeHRWTE9jWmxFV1N0bjMyMFHSAb8BQVVfeXFMTXFJQTFsTG9HbDNFSF9HOWFURmVFRUxIRERZNG00UlFMamgwQmpTMWFKQ1NLLVQ5MFZCSFpLdkRBZ1JKakFvZEF0OTlGNjlkOFVuZlY0WmZLb1hWa1plOHFXQnlKUERDMGNfdXhtLU1zSUxuaUNVZWZ2UVZKWVNMN1d6ZlBSUXk4bTZPSFlvVmZnTm5qblY1VUJWXy1RRWllbHFYQVdOVmJxdzRHTVRIemtjcFY1TE8wajgyWkFnakk?oc=5",
+                                   "source":  "India Today",
+                                   "published":  "2026-08-25T08:52:32Z"
+                               },
+                               {
+                                   "title":  "Pre-BRICS Summit pivot: India’s Diplomacy with Beijing and Moscow as Doval \u0026 Jaishankar takes lead with visits!",
+                                   "link":  "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPdDlYYy1DbGlFVFNyZWJTV1IzYlpUMWFxczRsXzVQTS02R2syaU5NVWJkWUpjcDhtSUVQVFhUbWh3dXRQYV9NMEZKUlUtTTJjOVJadTllVmlIZ3lkSW1acEtOZnRqaVREaXVTNlNJLVU2bVhOLW5DSlNzR1VRQjNUa05ySmVjV19zTUd0UzBITXhPX1o4eXRwVWJDYkRQWUdHYXY1NDh2bUUxbnRncHp4UTZ5THh3VWRJcW1hemJKMjhtYVZVUnZSaTVVN29QT1NNNmZPX3BVeDRVVXh3VXZB?oc=5",
+                                   "source":  "Whispers in the Corridors",
+                                   "published":  "2026-08-25T08:51:37Z"
+                               },
+                               {
+                                   "title":  "China vows to protect Iran trade as US threatens Tehran’s partners",
+                                   "link":  "https://news.google.com/rss/articles/CBMisAFBVV95cUxOWDQ3R0RyNTFwNjYyUEtaOVJmR1BZbzM5R3RuSUQ1elM0MEJrM1FINjBsX05vRXFCN1RJSzNBV0Nic1ZjcjR2QkZTNkNkekY3TXlPMmk3Q2pWalR0aHNJNjZscm5GUF9WdFEzLU1kejRIVHkweDVpcHAzZFZiYzZMLXE5YWxnQUdWRkgtZllHdFE3a2MtaXpvRzdCMnVhT2x4cXBHVTc3MVNRY09DUk1yVA?oc=5",
+                                   "source":  "Türkiye Today",
+                                   "published":  "2026-08-25T08:50:18Z"
+                               },
+                               {
+                                   "title":  "BRICS Sherpa Sudhakar Dalela says India’s BRICS Chairship guided by ‘Humanity First’",
+                                   "link":  "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPQ1BYeFNGUkNUQUhWcXRxMEZTeDE4aWtrTF9ReHMxTVlNR2kyeEg1RGYxV29uRTFDTXhKcURWX0EwZ0ZtcEVlYmpFNVVqelVPSHFmV0FVTjBfdFNKT0tlWkFNbUl3SEhaelgyTVdwWjRhaFZlTnZxOV90NXpqd1V0YVBLT215akJGbWt3UkJiTWFFSDdVNWRlLTZKQXhxNm9UQXdRdHdBbXV0MXc?oc=5",
+                                   "source":  "News On AIR",
+                                   "published":  "2026-08-25T08:47:27Z"
+                               },
+                               {
+                                   "title":  "After 7 years, Xi Jinping may visit India for BRICS meet with 400-member team",
+                                   "link":  "https://news.google.com/rss/articles/CBMizwFBVV95cUxPTWlkMU9iOG0wOTFCT1ZQRVRoLUdibENJMlNGNGtDalU0TndXWlV5dEV2WUhMRVZZYkRPMEoyYVR0RDJKT0hUVDZ4VWVPYzRHdjZ5WmFMRGNMMDRwUXZZX0xIOVU4MnJ0SDZhMTZraHphSzR2eDNjZkV6MDluWmZsSkZ5VFE4MllWMXkzeDhjcmtVUlhGdW1ZbnlycE5IQnduZVQ5cTZ1aXZoZmJxVWtBSG53WU81M0ZjaW55WTd3MWROY3ltM1V2Uko2dTdjNEXSAdQBQVVfeXFMTkZBZzdTUFQ2UGNlRjJ1RExWTHFjMFluOGVqa3RNSHVMSURXb3FfZWROZENXN2xYZGJMbnE2ZWRmM1lPeDRtc1lwc0ExbGJRdThPcTI5bEstekVZalFrbWVfSmN3ZlpQLTduYV91NHJROW5yNFpRR1hDQVdxUURlQkFiV1RtaDdiLTRMbnhmcEJxNHR6QW5kellGNEZZRjJiMEJCbDZFRjBSei1yb2RtVTlEaVhVcDF3WmdvTzBQa0VmWFNDY096MXJVMmxVck5lcVpnNkI?oc=5",
+                                   "source":  "India Today",
+                                   "published":  "2026-08-25T08:45:25Z"
+                               },
+                               {
+                                   "title":  "India invites President Putin for BRICS Summit in New Delhi",
+                                   "link":  "https://news.google.com/rss/articles/CBMinAFBVV95cUxNaDcyYXZVZ3RVNkdzZlFLcHhyMVhrUkVXbnlfcGY1NkNuNmRLQzNUekZXM1czeWpuWW1tWTBEWFQzYU8yWkxaeWM0SHdJVVc5V3h0eTVqbXZ6WmtvZk03d3hFRGtHMWJrTW8teVJzZXVsTGNQS1c2Z2w3UVhLUnFWVjRXNER5WHE4T0pEc2xGQ3pkQVBldnQ2NndkRGU?oc=5",
+                                   "source":  "The Indian EYE",
+                                   "published":  "2026-08-25T08:34:14Z"
+                               },
+                               {
+                                   "title":  "India\u0027s Economic Vision: USD 55 Trillion By 2047 With AI And Sunrise Sectors",
+                                   "link":  "https://news.google.com/rss/articles/CBMitgFBVV95cUxPSGNrZC1SVkN2NW5RRUJseDluTzVaMWxoeTZNWmU3X2xDZkVJZUpyN3dwbnpVaE9WdnlYTVRuMjAtQkhMUFpCNmVqc3lBaHQ4YnZPS1ZvMEs5bGxuNUhLVjJTTndPR2tjYkVnVWhMaTJmNExCcUI1Z3M5NzBXcEJnV1MxR2h1RnJJcHQyV2JtckpRN3ZEQWlLTkgxQjVfWXJKTmdna1FFeDRmbURoY3hSRl8xV2psdw?oc=5",
+                                   "source":  "Rediff",
+                                   "published":  "2026-08-25T08:30:36Z"
+                               },
+                               {
+                                   "title":  "How India Can Achieve A USD 55 Trillion Economy By 2047",
+                                   "link":  "https://news.google.com/rss/articles/CBMiugFBVV95cUxNODd1OVRVczd4ZEdKak51TmhnZHM3dC1LVlZGVkJGcTVlT240SXZ2NVZZMTBDRDFyRnZYSkhXWW1TekltMDFMdG5iakluQ2Y0SW0zMTFLTHVJWXFNeDFCTzByQk5qM1RjRlZlckhlazU1d0tVcE5LWG1idkljSXRxUUFEQ3RnWkxuUWtNUEhtbklpeFNZLUFFa2Z4eWNSSkFQZVRNOVNyakZYOXBVb3pOU04xUnBvNnk0elHSAbwBQVVfeXFMT3UwQkNOTXpJbm1DeVNnMU9QWDN4clFTUExYQ1JtR3NNZ2ExbHNDOGJQRDdGVHpyU3psTnF4VERmb1Jhc3ctU0lJa21IdkVSUUdpVk9iQXZiVlZteFhKa3l1dnpnaERmX0YybHNVekVRTGF3WFF3X1VzSGdpRlNUYmtRY2o1LXpLWGZ0UDg4N0Nqb1otM3cwTXE5NzlIUHlUWHo2MkVBTEVSdFZReW42WG9ubHctWnNxcGdsNzE?oc=5",
+                                   "source":  "Rediff",
+                                   "published":  "2026-08-25T08:30:36Z"
+                               },
+                               {
+                                   "title":  "Xi Jinping May Visit India for BRICS Summit 2026, First Trip in 7 Years",
+                                   "link":  "https://news.google.com/rss/articles/CBMimwFBVV95cUxNbVNlaU5TMldrRDMxZDlLMjFacERZMXdENlN1NDl3S0JfSVpxQ0NybGstSGNhakpPUmFRMjh4dkZVWFlweDIyOVQ2eHBhZS14M3ZvLUR5WHRtNVNpM3ZEOEUyd3hCMXpMVVFhZ2c3bzNFM0VUTXpnMUhSTklsMmtqaklfT2tISFR2YzVkRmJkdUQ1aUpxU0NKNFpBaw?oc=5",
+                                   "source":  "Pragativadi",
+                                   "published":  "2026-08-25T08:13:25Z"
+                               },
+                               {
+                                   "title":  "Chinese Business Delegation Arrives in Mogadishu for Somalia-China Trade Conference",
+                                   "link":  "https://news.google.com/rss/articles/CBMisAFBVV95cUxOWlZZVndBeXViaXZUWndhRzN5UzQ1NEYtcnpxYVY2ekVEOTUwODJDa2RqeTJrMzNDeVJsVkVVMmxFX1NabDFJZ19pcEZweUZsMFBHVHJzU29SbXp0LXZSV1lYa3JNUE1aRWFteTI1eERoek93aG9fOGNjUFk5VkVNOGxBR2luVzMxeWtjVXBuTXJUODE2RFp0RV9XUV9xd2lfQWttZGRvSzdyTDVjREk2ZQ?oc=5",
+                                   "source":  "FTL Somalia",
+                                   "published":  "2026-08-25T08:08:24Z"
+                               },
+                               {
+                                   "title":  "China develops rice gene that combines earlier maturity with higher yields",
+                                   "link":  "https://news.google.com/rss/articles/CBMipgFBVV95cUxORU5SMV96d3pBOF9iY0ZZR3BycE9jVnBkY1h4Tzl2RTVleldFdlAzSkZ0VmFZUVV4OW9obWRUYXQzcTJXaW5FeWJBcmZZX3ZMNGEtVDhTUUwyaGxoRk1BMjIzX3ZPVlphdk40RlN6QlZjMjlEV0NvM2NnQW5qTXdXZEstS0F1ZGNnMnF5NXVxMm13eW9kejAyR3FrVUlMQmF5WFU2V05B?oc=5",
+                                   "source":  "TV BRICS",
+                                   "published":  "2026-08-25T08:05:06Z"
+                               },
+                               {
+                                   "title":  "Trump Weighs New 7.5% Tariff on China Over Cheap Exports",
+                                   "link":  "https://news.google.com/rss/articles/CBMimwFBVV95cUxPbXV6bUl0dkQtSVpTMXRUb2RGNDZER2pTbFBlX1otaTlTd3VjV2NFcWRDTWVHbXlra3JSOWpxcVllVTFKUXR4cGZlQmZkRWlrZTNpdDZtei1NeXFuM1dlcHppWmRQNUYzUXk1RzNwdXA1bXlyRDl4ZjNhbkk4aE44OXgwQUFfSHl5UnhEM085bkxZczJ0dlJLTGtydw?oc=5",
+                                   "source":  "United News of Bangladesh",
+                                   "published":  "2026-08-25T07:50:51Z"
+                               },
+                               {
+                                   "title":  "China\u0027s Xi Jinping may visit India next month for BRICS Summit 2026, 1st trip in 7 years | India News",
+                                   "link":  "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNVHF0UjIxVHJ3ZHAtOUFkQ3B2TUFCR3A5SlNxN3dfMDZRTmpFak4yR1BzR1I0Nl9Qc19lLXYyNFY5WkdqMDRCV3EydjlPQkVaOU5va0VlbDdtVXBWUHlWR1lZY1RlUUtSSXJUTTZZb05rSmllYk5FRG1aS3RwTi1Pam11VjJYWHdva2ZCQmFTdWY4UWdidU90VzU3UU1YZ09Xd3dpMnlPUGltR25MNHhuRFhla2tqemE1WTZ5LXk3WGt2RzJzX2tyYjdfXzVvdlVPUDBPVUZMNW1Xc0RjQVNz0gHkAUFVX3lxTFBMNFFCZjdPX2gwWkxIWEw1YnRiZE5iY1Vvc084dHNMRTVKYmFDY1luaDFlNTRYYlJGT29ua1dBN0MxWjF5WDF1NjdBb3I0Rkc0elRPQnN2aWpKWXJwVVIwa0wzTlcyeUU0OEJ0ekh5RXlCcFhidjZZN0kwbUJwZWpNZnpQNzhXUjZFazlJVzRuVjkwSG94bzh6WW5ScmV4c2I0LXVzRjBpYnpvTmZDa2MwVk1NQmNHZU8yTjlkanV1TDZNNTBrTmRyRFE4bHdrM05WSDA5ckhuT1Eta2ktYUNvWW1zMA?oc=5",
+                                   "source":  "Hindustan Times",
+                                   "published":  "2026-08-25T07:44:23Z"
+                               },
+                               {
+                                   "title":  "NDMC Unveils Civic Preparedness Plan for BRICS Summit 2026",
+                                   "link":  "https://news.google.com/rss/articles/CBMilAFBVV95cUxQOU02YkZvcEJURjJzbjVvRkhVcWdlcDlMVWZnYVhnT3BEZmtuT0xZSzVuR1JIczViWUlsTEg4UWVHTnJwVGh4djNFUERkSkRtRm1zNDFXNlVGMzlHNDlkYzBHWGZBdi1pMFJBVnMtXzlEU2F5TGJFdEZPUFpybnlDdHkzRmZtLUFOaGdla0xVcGFCZWVw?oc=5",
+                                   "source":  "Daily Pioneer",
+                                   "published":  "2026-08-25T07:37:51Z"
+                               },
+                               {
+                                   "title":  "How African nations can anchor the next wave of BRICS wealth",
+                                   "link":  "https://news.google.com/rss/articles/CBMisgFBVV95cUxPUWVHVVZKWk9pUkxOdlFWcENtX0RQV3RsQzdlM2RLNXpEZjlxdmpvTWx5U0JQam15cWsxMjJ1Y2ZPd09XTzdacVdna2hZUDJIM094emNZak1BdVNmbWRMcDdQT09UVXhGNDEzREVFSGNtWEgya3ZXQWVNUkxDS3dNLTFUdE52V2ppbWI2dE5wbUtmZFRDalEySlp2U3A5dEV1TFo4amRpUkVXdjJIdnVVZ1JR?oc=5",
+                                   "source":  "IOL",
+                                   "published":  "2026-08-25T07:34:38Z"
+                               },
+                               {
+                                   "title":  "India’s gig economy is leaving its women behind, study finds",
+                                   "link":  "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOX1FycVk3UEZkZWc3RXBkSk5Jd2VKX1BUbzYzNzkzOUM2VW4yZW5YQ2VnSmRFclI3QTJHbExMellBVjhud1A4cDNlVUhMVE9scjgxb3NxYm9MSnRlQmhiQVI1LVhiVnRLTmhOZjBueGsteUpYc1JFbnhCUHZ0VEVuTVR4SnhPbDZ6b2tDaG9mOTU1RWRTekJIQUxyZ1B3S0lwOEZGaF9BeG9fcEFPcUZPbzhTc3FaVy1yMU5QMG9DeWfSAccBQVVfeXFMTVY0UDFySjdJLUQxb2dIX1NZRExZU3BYOFIwTnRJV3R6QmItMzBpNHVOLVFBU2RnaDRaREhBb0FmVWU3eDlSZHBYT0VjZjg1ekZRTGg3ekR5MWZyUFhXcEZpZkI2UElEZUh2eFFIdDVsZHRGMk9MUjVENHlwZU1Qak9ENmVWT25SdHFGaHdLUXVWRUNhT1hsV25NUk5TVWJwYkRPYkhFdlAwQklDalIyc2M2M2twaW1IR2s3TGVkd2lNZFplV19vQQ?oc=5",
+                                   "source":  "BusinessLine",
+                                   "published":  "2026-08-25T07:33:18Z"
+                               }
+                           ],
+                 "geo":  [
+                             {
+                                 "title":  "Trump reminds voters that trade wars are also affecting prices",
+                                 "link":  "https://news.google.com/rss/articles/CBMirAFBVV95cUxNeXJHTFRKcnBTUWFITklBaE5pTFpIeEdDTFEyUjBZMUtoTjVXdWY5Y2g2cThVd1ltVk9zdXdZcWFGSkhfSWphTHhLZFd1X3owMTNfSzA2eHNjVmwxcXRIM0F6bU5LY1VGSFdUOXF2V3RWd2FSZ1liVU5FejFQU2dxMlM5ejlHbmw5dWpVMnFUVVhyVVdPQTh2YXI5NmRnMmFmWmlpeV9ZM2o5aFBz?oc=5",
+                                 "source":  "The Washington Post",
+                                 "published":  "2026-08-25T09:02:50Z"
+                             },
+                             {
+                                 "title":  "CT\u0027s Number of the Day: How Trump’s 50% tariffs on Canadian goods could raise costs in Connecticut",
+                                 "link":  "https://news.google.com/rss/articles/CBMilwFBVV95cUxNTURzbEVjb3p3MlJBWFliM2RoY1RJUFRIaDU2SWJCd0hTTS0wX3Q5aHlBcElXZ1FxSG5qbGdfWUFGVjJCSFlXS3h3Z3BVYVR0T2s0LXdEZENXNzBPejdHUTFtOHVKdjcydWFsOTBvbkxQSjhHa05pM2VXZzZxeXdxNDE3VDRBWnp4RUx3SF9MSENBRGNCQjJJ?oc=5",
+                                 "source":  "CT Insider",
+                                 "published":  "2026-08-25T09:02:46Z"
+                             },
+                             {
+                                 "title":  "The US has the economic strength to withstand a Canadian trade war. Does it have the political will?",
+                                 "link":  "https://news.google.com/rss/articles/CBMijwFBVV95cUxOVlVObkZuNDFaLTNsRHBVQnk0Y2Q4cndZaXlHbFNYME16SDJXWWRvQVJFOTZxZjh5WlBUZGZnOVo5ZVNXckpudFJKSlhYWmlfUWpaRlVybzZYV3VaSkxDMDRiVGFXNUFhWGNtNlhzT2lFMVJUaWFFOHAzdGhMX3p6eWJMVHpVc1RUYjFpQ2w3UQ?oc=5",
+                                 "source":  "Politico",
+                                 "published":  "2026-08-25T09:00:00Z"
+                             },
+                             {
+                                 "title":  "Klaveness Q2 2026 slides: record results amid Middle East crisis",
+                                 "link":  "https://news.google.com/rss/articles/CBMivAFBVV95cUxNUkFWYW5oTEhpNEstX2JDSFUzZGZMTEtPVGJSVXFPMVdvaUlfMWEzWUVmX3ctbHFYQzN3dXJWRURZdE1sVUpKZXNWV01PQ2tBQmg3Z2RtcEsza01TTFZ0NC1zX3daZThqWGV0ODJmc1c1YWV0bXZJOHdVZGlSTnpqeGpGRnl0a3BwbjloV1ZMdjV5ZU0tYjJFOWRoZktRcS14VmNKN25wRkFiVUNWaWthcHdjVjZVLWl6SlBmNg?oc=5",
+                                 "source":  "Investing.com",
+                                 "published":  "2026-08-25T08:56:28Z"
+                             },
+                             {
+                                 "title":  "As the Selection of Guterres\u0027 Successor Approaches, the United Nations Faces a Critical Test Amid Political and Financial Crises",
+                                 "link":  "https://news.google.com/rss/articles/CBMinAJBVV95cUxNMVFZWE54d1VuNGV6c1F3UTFhY1VGOHQ0R0QwcnRBTHF3bjh5cGt5dzRUeFZaRW1uSjZqdWVfTERzcGU4a1lkT2pqRThTZTB0WUlJanNhQjhGNklaTWJNMUVyRGIzUnc2ZjZ2NGpyeVhYVUZCREtzU0puQWJBdTFFakI3ejVraEdhcjVnLTE3UURjaFBLY3JsTWtEd08yZWlrUnNlOXY0U09DYkxBeE5TUDk4ZGVkZDlfS215MUFPY1UyYWl1R3l0bUFtNkd6RFNlWGZuWjhqS2E2dE9zTXc3QXAwSlJ0RE9vZXRpVHZIWUN4Z0ZTUEdJY2N5QUpkbnJhRHhOTzRhN192em9sUjExdFFrM3FfNll5elFSNg?oc=5",
+                                 "source":  "ShiaWaves",
+                                 "published":  "2026-08-25T08:49:21Z"
+                             },
+                             {
+                                 "title":  "Canada to announce retaliatory tariffs on the U.S. as ties deteriorate",
+                                 "link":  "https://news.google.com/rss/articles/CBMiogFBVV95cUxQeDVPNDFqZzRTT1ppdHh4V2lJLUxGZ0o2ZWlQNjVGMmUtcjRBMm1NTFI3WkczRmRrSV9KMGFla3N6T2NVMlBzQkdPamNBQnVhTTRoNXFYeGh3ZzJ3WkFJREJod2p4eFE4VHdoUWNSeXBNZGloX1lxNlpTbEFuNW1TUDVuVDdLaE9ReHJjNVM5YlV4ekg1Q25lekNWdXU0UG5JR0E?oc=5",
+                                 "source":  "Utah Public Radio",
+                                 "published":  "2026-08-25T08:44:00Z"
+                             },
+                             {
+                                 "title":  "Will the US ‘economic D-Day’ work with Iran?",
+                                 "link":  "https://news.google.com/rss/articles/CBMikwFBVV95cUxQaVJkR1U4MFV1QkQ3TjJKT1FLSUlKbGQxcmZEYmRKUVFVTllxRUh5OEtkWEVrWVozRUZQNUZBcWM0RU9tVEhQRnU2NFZzekRRXzlTTWFLdnRzYTY5OWxDZ1BQY2p5ei1ZSjRvVHpoNTV5TU9zc3dGNlh4MXlUM1JjV0hpOXBpUElPaVo4cDdzYU9tTUE?oc=5",
+                                 "source":  "gasworld",
+                                 "published":  "2026-08-25T08:42:33Z"
+                             },
+                             {
+                                 "title":  "Klaveness Q2 2026 slides: EBITDA surges 31% amid Middle East crisis",
+                                 "link":  "https://news.google.com/rss/articles/CBMivwFBVV95cUxOWjJxZFIwYVFaUTdXeXJnV0VXTGhTY2FWSC1ZQi01Y0hINnJSWjBrTEhhY29ONEloNlNGMVBCQTNXcWVMQTVLcXBtUUtWbzh2SEZ6Wnk3VVQydGV4Z2Zva0NEV2FTalBKZlptdWE1MUdwWHpla1lxWl82aWsxb1F1RW5rLWY1ejhIeWY4TGJGQ0pDUGZqSXdOS1M4Mlc0SGx3VWhITVIxR0pkSnRuVnVlb3lILU9nbzdEdkhEdVRZdw?oc=5",
+                                 "source":  "Investing.com",
+                                 "published":  "2026-08-25T08:40:15Z"
+                             },
+                             {
+                                 "title":  "UN and Red Cross call for urgent rules on autonomous weapons",
+                                 "link":  "https://news.google.com/rss/articles/CBMipAFBVV95cUxPbmljdWxVeFc5ZjQ1akJuSEJnZ3lQZUxnZVdaSFdwUWV2MWRuWnA3NzAwUWdMRjdFa1U5SkhkU1JabzdycGduTFVUU3J5cXpMOEpGbW1tM2w1Tk9XWm9hWVVmZ29LN1k0MVhJcWwxQlRlWkRJWjNTbDdDV3gwYy16SFpVQk02M0RkOGxGQ1pvQVdxdGJpZ1FwTlJPVjVaWWR4ZGszNw?oc=5",
+                                 "source":  "Reuters",
+                                 "published":  "2026-08-25T08:35:43Z"
+                             },
+                             {
+                                 "title":  "UBS Expands Push to Leverage Client Cash in Middle East Banks",
+                                 "link":  "https://news.google.com/rss/articles/CBMisgFBVV95cUxNVmRPdDZwOUZiOVlvRGZGeGhCckZiY2NkbVA3MjlFY09wZTJPbXBoaGRvZWQtSk1CR1o3d1F5Q1kxNDYyZVBJblFoOEQ4VWZBd1JqQWwtdklQa25aZ3RvNF9MMEdEdmxNbUZFRW84OVQzZHMzdS16MnRYcE1ZWk03bnFiYnhkSkFMUC14ellMVjZ0VG40WEh3M0VBNGVESE1XbkR0c3FMLXI1UUlQYnRqU0VR?oc=5",
+                                 "source":  "Bloomberg.com",
+                                 "published":  "2026-08-25T08:35:12Z"
+                             },
+                             {
+                                 "title":  "Pakistan says significant progress made in talks on Iran-US war",
+                                 "link":  "https://www.aljazeera.com/news/2026/8/25/pakistan-says-significant-progress-made-in-talks-on-iran-us-war?traffic_source=rss",
+                                 "source":  "Al Jazeera",
+                                 "published":  "2026-08-25T08:32:52Z"
+                             },
+                             {
+                                 "title":  "As Canada prepares to retaliate in the trade war, what pain can it inflict the US?",
+                                 "link":  "https://news.google.com/rss/articles/CBMirAFBVV95cUxNTjhqS1dNWmF6Ym1veDhyLWhvdTJvWHdONTVqUHVpdDN2dHlwNXQ4M1lTRmRaU0ZiRnVKUnNKeFZhdGtCYk9HN3Y4YmlLc1owM1QySk1CSmtBSWRMRGVudzE5TUpiSVJSUzE2VEdUTllaeHRpcmVRWDVqV2RxQTc2OGVqeFM3NjB1dWxfalJ6Q1RObUxQMFdrMExuZG1DdHQxWDF4bzhZd3pIUzhh?oc=5",
+                                 "source":  "France 24",
+                                 "published":  "2026-08-25T08:25:39Z"
+                             },
+                             {
+                                 "title":  "U.S.-Canada Trade War: What to Know About Tariffs and the Negotiations",
+                                 "link":  "https://news.google.com/rss/articles/CBMijgFBVV95cUxNcS1YRVlycXJKMEdBQldWcGp3QzV6WEEzZGJZU1BRMjVGY0xOY01QLXdodFRGNWxaZ2szSG5TR0lsNGpsZDYtRFMtSEtBM0hDcnNfWVZVOVFtOFQyNk5SdERPNDk5MzdQbV8xYk5FcFBoakhCX0NHWFpfZ2VYY0o5TU1ZcW9TUTdnRllfdkd3?oc=5",
+                                 "source":  "The New York Times",
+                                 "published":  "2026-08-25T08:24:28Z"
+                             },
+                             {
+                                 "title":  "Philippines to expand military drone fleet as South China Sea tensions rise",
+                                 "link":  "https://news.google.com/rss/articles/CBMiywFBVV95cUxOSzA1RHRnVVRTSXdmd2h4Ml8yWnBURk9na0RyZS1GamZGeVdpQTBra0hVb0xydVRyRGxqcDg5c0JHN09YVG14bXh0allyTTlENVhtbllSdGxDQTB0U1hVNzNSY0kyVWJ0NkZuckJhSlFwaFNBSkY1TWNFNVZURlNoSGxXYnRkZVgxX3duY0N0SkpXTTBUSEhiYW1malp5VmdMTjcxb3M4M0h3cy1nbkxCN1NwYjh5TnlCSWV6LVlRbm4yQzhMcndYeXV3Z9IBywFBVV95cUxOU3lUMGczTGxNeG9zcmtpUGI3bU1ibTlIZ2xRX1BpOGtLdzYwZE9fLVU4YWNXWW02ZzZSVm9wbkFyS2N2dGRrUTMtc3VTYU1TNUJtN2w1blBEMFlNOTRERnh4YWs1T0NwdUp4Ym9CZnBXSFdVbWIzVTdTUE5aM0tEYWJja2JQLVlZVGVleFpiYVlWSW10Vi1SRTJzLTJtd2pfbGJfODdTeUdia1lWWDZySElDcmdiTnBCWXBLbU0zeWJzdkZtaHdnX1ZuMA?oc=5",
+                                 "source":  "South China Morning Post",
+                                 "published":  "2026-08-25T08:24:23Z"
+                             },
+                             {
+                                 "title":  "Rohingya refugees protest, nine years after exodus to Bangladesh",
+                                 "link":  "https://www.aljazeera.com/video/newsfeed/2026/8/25/rohingya-refugees-protest-nine-years-after-exodus-to-bangladesh?traffic_source=rss",
+                                 "source":  "Al Jazeera",
+                                 "published":  "2026-08-25T08:24:13Z"
+                             },
+                             {
+                                 "title":  "Middle East: Pakistan sees progress in US-Iran mediation",
+                                 "link":  "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQ3duWkxKSGZDYjB2SW53NkNrb1oyb3YzcWtMZXNXVWRqQ2xuRFVvX1lGRzNaWVktMjBHYTE5RGlUNUp5Q2NES2pJb1Y2Vk1QZU9Jc1hLUWdrRWNhWi1Fd19XNDdsN0t6VXl6OUMyV3lVdHFvUTl1S1g4Y2x4SEI1Uzh0eXRiTXp6U2JXYUx5Z25YU2k5MEE?oc=5",
+                                 "source":  "DW.com",
+                                 "published":  "2026-08-25T08:24:12Z"
+                             },
+                             {
+                                 "title":  "Europe\u0027s NATO Airpower Gap as the US Steps Back",
+                                 "link":  "https://news.google.com/rss/articles/CBMiggFBVV95cUxQVWFUQzlPaTFlZW53Q3l5Vm1mcWV5M3YzQ1Zzd0MxT2FZV1hpeGFOMWUtYk9PeXF5TWtfZTlKdXBxX0VDMGs1VlYteE9WM252dWNiUHBUbGRadnF5R1A3bTQ2aWI5ckhyY2RSUGhiM29NWDVVQkJFa2dmUWFOcXdsTWFn?oc=5",
+                                 "source":  "MiGFlug",
+                                 "published":  "2026-08-25T08:22:45Z"
+                             },
+                             {
+                                 "title":  "NATO Confirms 10 GlobalEyes, 5 Tritons, A400M Fleet",
+                                 "link":  "https://news.google.com/rss/articles/CBMihgFBVV95cUxPc25GbTlCOXpMSURqTlZ1Wjh2MFlIVTl5b2o2cnhYMVFValFESUpWaGwyTGl2eVljUmMzN2dGbXpwcEVPTEV0c2kzQ1Y2dE5LcTFuNHV6WWEwUHhoWXY1amVPcXVBX2NTRmo2dlk0ektkZGY4SXNFdTd4R29RSlpKdVA2eHktdw?oc=5",
+                                 "source":  "MiGFlug",
+                                 "published":  "2026-08-25T08:22:23Z"
+                             }
+                         ],
+                 "markets":  [
+                                 {
+                                     "title":  "The Fed doesn’t know who’s financing the $3 trillion AI boom",
+                                     "link":  "https://news.google.com/rss/articles/CBMikwFBVV95cUxPYWlzS0QySnhtQWZXeUpBVTV4cFBkaWxwNDhpbFpnUGdMYUhVeXRjakhzdE5fODhEVTJzRFMwd194QlN1dnM1aFJQUEItUkx5TGVnYnZmQzI0NjFWam9NNDYtNkRyV182bzczUmlENVJMZVFMakRIOHlhUE9aUHlSSkM0OVpoUVFFNWp6TXdpNzh3dlE?oc=5",
+                                     "source":  "Fortune",
+                                     "published":  "2026-08-25T09:00:00Z"
+                                 },
+                                 {
+                                     "title":  "Treasuries take centre stage as bond yields, oil and US debt unsettle markets",
+                                     "link":  "https://news.google.com/rss/articles/CBMirgFBVV95cUxON1pqc3g5QlFyWDVsV0JOZkZaeXJaWTF6Z2gtVE92UG5zRkF4OGpHZ1RWR05sSVRVRUxJNExMbXNXOW1IeVBBQ0EweWVwSjdMRzBlazBxeGwyMW5zV2dOOTZONHNCNXE3dUdRa2Z4bkctX2RiQldrTzljSUxrQWo4WUJCRkFYTTlkU2lpMHo0S2JXVkg1X1FxWjlQeGNRNXNVaGlMdXEzbHFFY3llakE?oc=5",
+                                     "source":  "London Business News",
+                                     "published":  "2026-08-25T08:54:25Z"
+                                 },
+                                 {
+                                     "title":  "Galaxy puts Coldcard hack losses at 1,789 BTC, with 87% unmoved",
+                                     "link":  "https://cointelegraph.com/news/coldcard-hack-galaxy-btc-lost-87-unmoved?utm_source=rss_feed\u0026utm_medium=rss\u0026utm_campaign=rss_partner_inbound",
+                                     "source":  "Cointelegraph",
+                                     "published":  "2026-08-25T08:46:47Z"
+                                 },
+                                 {
+                                     "title":  "Bitcoin Spot, Futures Demand Rise Together as 30-Day Demand Reaches 170,000 BTC",
+                                     "link":  "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1uWFNPVl9SdWhLXy10NTB6MjhPeUhoaGNqRUpfNUhLMmFRRXpvVlljTklNVmo1NEVVT0lyV3pJYjJaQ2pjUGVkWlVIeGw1eTQtMWUwWQ?oc=5",
+                                     "source":  "bloomingbit",
+                                     "published":  "2026-08-25T08:42:24Z"
+                                 },
+                                 {
+                                     "title":  "US July PCE Data Preview: Core Inflation May Hold at 3.3%, How Will US Stocks, the Dollar, and Gold React?",
+                                     "link":  "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNdzB5X3R4MEJtREhqN1NXUnp2S281eVZ0OXcxeE5ZV0RQamE2U3VmNzlLS0N1aTN3Y1RHQlAwc01kNDItRzBtamllYjJXR29jWlp3YW5OOW5KWTVibWt6aWd3a3M5RWl4ZzU1MnRPaFE2N1VPU3hxWEtDRlNMVXRGY3o4MXVLRTJGN1dJeE9xUTIzczhLbUVhYkt0OC1qZzJ4dDhWM19jT1RNN0N1OFJQU2hvQnNXUjJOU3M4QnQycmFJdVpOZ081UlBGX2hRQV9yYVVxYU84eUx0ZExmSjltTFExYw?oc=5",
+                                     "source":  "TradingKey",
+                                     "published":  "2026-08-25T08:42:09Z"
+                                 },
+                                 {
+                                     "title":  "Bitcoin surpasses $80,000 for the first time in three months, with cumulative gains reaching 28% so far in August!",
+                                     "link":  "https://news.google.com/rss/articles/CBMiogFBVV95cUxQYklmaXdYc0xVdEtZNkhKTG1lcjZOQ1BEOXVmclg0MW4wT29ZREdrYi1TUTVxYVRYV005ekNDd3d6ZlpMUmo3LVhZYUQ4YkpHSk41U0c5WDFYZW5tdnBTYmhaLXNxVDdyQmlKbS1kYWdYdmttYW9ZRHpqSGZTSUpVTnVmOVdHMDdSOTkzRkxMS3lMaWFUdFRhX05rSlpIMmZZS1E?oc=5",
+                                     "source":  "Moomoo",
+                                     "published":  "2026-08-25T08:41:13Z"
+                                 },
+                                 {
+                                     "title":  "Korea’s vanishing long-term investors leave stock market, ETF trade more exposed to volatility",
+                                     "link":  "https://news.google.com/rss/articles/CBMiekFVX3lxTE5tc1dtVm5SSDRFdl9xUm0zay1NNm43akJyMWdBU1YtRjdZVkpidDlQUkZoSEhMbHBBVHNWNDNjUVVGbldiYWg3UDd6UFhGeE9vYkFseG5PQjdmV3g1WmlGNTBVN2RoSllxeFlLclg0WmNFR2dwZW1NQ1Jn?oc=5",
+                                     "source":  "KED Global",
+                                     "published":  "2026-08-25T08:38:00Z"
+                                 },
+                                 {
+                                     "title":  "US Stock Market Today: S\u0026P 500 Futures Edge Lower As Inflation Jitters Linger",
+                                     "link":  "https://news.google.com/rss/articles/CBMivAFBVV95cUxNekREdk9RYTJnTmhONmxsZFpVRXBPeVBUNXBEeWhDMlIyOWF5QWd5WElMOXJFZkM1OWEzQ3Y4Y1ROVjhOVDZYSDJwbWxZRjZSdGRUcVBheGVDcWExUHRyUVVHQnlRMDIxMVZTQS1ZdkVGeFhfVm44dkhMQVdhRElnWXJob3k3QXpPYVZ0NnVhSWF0cmthcEticjYta3M2VGJWclZ4NzJPT2FmVlFWTHBKMXdzVGJEaE14Wl83X9IBwgFBVV95cUxOeGtaa1VtckgtY3hnT1VuRFhpSUlKY0kwZzhwcE83QnhOSXdDVlJuR1JUNUtZckZDTWtmcVlpUjlPSUZQZkMyZDBPdDk4bF9ZQTE5REtza0RGcXlYRHozMU5GSWxsclBrWmVpWmJfMDQ3T01SN2xBMllwTGY1SkpHak1hOXdzR285OWY4MjVMdjJoZnd5SjI0NEV1bGFKYnp2enRaejJDbENRMEt4ZU1ieHh6dEhfSGx3UWIwYnFYd3lydw?oc=5",
+                                     "source":  "simplywall.st",
+                                     "published":  "2026-08-25T08:37:57Z"
+                                 },
+                                 {
+                                     "title":  "Why Aug. 26 Is a Big Day for the Stock Market",
+                                     "link":  "https://news.google.com/rss/articles/CBMikAFBVV95cUxNVm1BRTdCb2ZJOWpIQXJMYkp0SFFmXzVpWFB0M0lvMjN1SV96YXh6VGhpUXRnMVZEMjRWcVB3eG1jYnhXUTMyQXZtNXM3eV93TFYwNlE2RWFGVXJ0cjFTSDVkMTIzTmRPdk1OOUhjR2dhWEtZZmNZcXRELVc4S3p2MjJVOHF0ZW5CSURvYUNmUTY?oc=5",
+                                     "source":  "The Motley Fool",
+                                     "published":  "2026-08-25T08:35:48Z"
+                                 },
+                                 {
+                                     "title":  "Signal Decoded | Gold and Bitcoin Rally Together - Technical Analysis \u0026 Key Levels",
+                                     "link":  "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOaWtvWXdvVHpVVlRIajluQlowVlEwQUF0X196TkZoUWtWdTFGTHAtZVNBd0VVRGEyWjZJd1kzY2pQWWFjS09GZWxGSThoRlQwVHpVaGp2NzJvMUYyLVRxSE1vRXMtQWthUVJrZ2VPQ2ZvTkxUMVo3N05vNl9nZU5nSUtRcVFEb0l4eG5aQ3pKTDRUOHhDMk9uQ01lQlllcGwxbnBwREZuYll5VEY5UUk1a21FSFh6R2F5NUZFRVRjaFA?oc=5",
+                                     "source":  "Moomoo",
+                                     "published":  "2026-08-25T08:33:50Z"
+                                 },
+                                 {
+                                     "title":  "Bitcoin surges past US$80,000 as investors hedge against dollar weakness",
+                                     "link":  "https://news.google.com/rss/articles/CBMicEFVX3lxTFB3VjNFNFpwUmJ1Zm1sMWpoU2drQjFKQVByR2JCdHNYMG1MaDhvU1BieUlib3ZBbGxkak4tT1hkeWdRNVIta1VLWXc4TnRkNlZTRmdKek80ZzRrMGpXNS1IY29hZlk0X29tNDd4NHVQakg?oc=5",
+                                     "source":  "Nation Thailand",
+                                     "published":  "2026-08-25T08:33:00Z"
+                                 },
+                                 {
+                                     "title":  "RBA Keeps Cash Rate Steady at 4.35% Amid Inflation Concerns",
+                                     "link":  "https://news.google.com/rss/articles/CBMinAFBVV95cUxNTTdvdEM1M3pmbkVrZXRxOEF6bnhLODRMa3YzT0xfeUFBbWYwSnNSOTVUZ1FVdHZ2dHh3eFFHQXlOc0NySVdIQ3h1LXRLUDRWQUt4UHg2anpWMDlIcmZqVmdTY0pXczRsMmhxX1ZrQ3czam5ELUg3bmlqRjNRc1N3UkpMNDJLbzJfQzFmVERoa3l3TVc5cmo3dHFiWG0?oc=5",
+                                     "source":  "GuruFocus",
+                                     "published":  "2026-08-25T08:31:36Z"
+                                 },
+                                 {
+                                     "title":  "Tether’s $120 million Uruguay mining failure now shadows its next Bitcoin bet in Brazil",
+                                     "link":  "https://news.google.com/rss/articles/CBMirwFBVV95cUxQamFhNE1XejVleDF2V0hKWHhIR1NOV1M2RzIwX1lvNENTb24yYmRzSWRGTGF1dGRxOXg2dW9VaUptajZObElaSVRHWHRVS2NXVXV0NGNFWmVfMV9sMkFKYlRtWXVocy1zZ0JlWmZzOVMwMnRCUFk5dmFfeHNydmJ1RjhlU2xxM1V1VjA4LVpIam9YM0F2WGlHanhhQmFTUjJRTV9XM2ZjNmdISUlDS19B?oc=5",
+                                     "source":  "CryptoSlate",
+                                     "published":  "2026-08-25T08:30:08Z"
+                                 },
+                                 {
+                                     "title":  "Palm oil prices steady amid projections of bigger stockpile",
+                                     "link":  "https://news.google.com/rss/articles/CBMirgFBVV95cUxQRUZtMnM5bXliVnI2X0lXdGpOZ1Z4NlBLVjNMQUNEZ2VLN1VSbG1QRTJaaGlHMlZhSXNjRXNBX1VBMklKZEcxUHF0TWs0alNBQWx4UW9XTnNUV2NYNzRHeVlRWk1aMnFqZk1JM3l0RGlYRXVfX0JZUzZwMWYxeUtsSko0dk00TldDWVRfWmJMWVNtWmE4M2hodnVCSUJsS00xalZBZGVqMHktZWVNdEE?oc=5",
+                                     "source":  "KLSE Screener",
+                                     "published":  "2026-08-25T08:30:00Z"
+                                 },
+                                 {
+                                     "title":  "Historically Speaking, the Stock Market Has Arguably Never Been Less Attractive Than It Is Now",
+                                     "link":  "https://news.google.com/rss/articles/CBMilAFBVV95cUxNdlIyTXlKajFaSDl4LVdXRkVnSmVUZG0xVFdjaGwyREI1N3FCVDN0enlfRkJRTjJkZi1mS04wZHBwYklZdEtNbEhLRy1RTTc1aGFGODhCSUlVUG1lVVpRcTZoUW5qM0VNS2pTa2hnOWxKdHBYNnNUV0lXWGxuRlMzM3l5cDBLM0szMjZ1SWF6TUpER2V4?oc=5",
+                                     "source":  "The Motley Fool",
+                                     "published":  "2026-08-25T08:28:45Z"
+                                 },
+                                 {
+                                     "title":  "PO Wealth Sharing Group Introduces Data-Driven Framework for U.S. Stock Market Analysis",
+                                     "link":  "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPUG0tSExMbWZ4TjVzNUJpUEt4aFBoN3lZQ0tHRURIaFJzVGlOT0hGTzMweFA0WGlPN3NrNUNJams5bnNsZGVKXzJKbDRIOGo2cW5Hc0w0Wm5ZN0c1REd3VVhuWEZ0WDR2TTV6ZS1rVXU4SkxqblZnd2ZFS21YOVhaTml1QzFoUmxHZXlJd01QX0FYX3FoOWdwNEFJcGxSUTlfYXdnWU1EZDdhcWJ3Q3d6cHVzTEVSVDNhQnBNSGlEdmJVc3lfTUNZRUo0a09ESlJIeC1jT2VaanZPOW1QcWc?oc=5",
+                                     "source":  "markets.businessinsider.com",
+                                     "published":  "2026-08-25T08:22:57Z"
+                                 },
+                                 {
+                                     "title":  "The World’s Craziest Stock Market Has Turned Into a Fright Ride",
+                                     "link":  "https://news.google.com/rss/articles/CBMigwFBVV95cUxOUHc1cktvMF9zTEkxYm0tVVhfR1doLVVORmZTZGdjanhnbEJTdEtnWEVFb3ZhT3ZTcnRrYXo1MjJDc0tMdmNwTHMyRnRFYnctZEtrVE9BWFNQRVZpOTJPZS1Gc3R2UjZzSFpkSDdOSkhZSk5pLXU2d2p3S1EwMUl2b0lCRQ?oc=5",
+                                     "source":  "WSJ",
+                                     "published":  "2026-08-25T08:22:37Z"
+                                 },
+                                 {
+                                     "title":  "1.8 Trillion Deficit Forces Capital Reallocation: AI Stocks Retreat as Bitcoin Emerges as New Macro Hedge Favorite",
+                                     "link":  "https://news.google.com/rss/articles/CBMirAFBVV95cUxOemlWbzEta19oRVI1cW1lT3ZJV2VGakdhUTVSbDVIdWVPVy1zRmszRlhBSlhQUk4yU1FHZFJ2YlZQaDZNa0RSb2h2bnN1SmJkel90b1plSm5La1VCYjNDeHVfLUFXeUhTZzB6NFhnM0U2elRZeVpyM2pSbFBBRzVKUXpsSHc0aWFFTlA0cnM1U19YM2lGWjBjTG5EVlJnRnZkTHdYWlVaVjFIWFMy?oc=5",
+                                     "source":  "Moomoo",
+                                     "published":  "2026-08-25T08:17:20Z"
+                                 }
+                             ]
+             },
+    "quotes":  {
+                   "^BVSP":  {
+                                 "price":  171906.72,
+                                 "prev":  166784.0,
+                                 "changePct":  3.071,
+                                 "currency":  "BRL"
+                             },
+                   "^HSI":  {
+                                "price":  25511.1,
+                                "prev":  25471.15,
+                                "changePct":  0.157,
+                                "currency":  "HKD"
+                            },
+                   "GC=F":  {
+                                "price":  4683.2,
+                                "prev":  4516.3,
+                                "changePct":  3.696,
+                                "currency":  "USD"
+                            },
+                   "^GSPC":  {
+                                 "price":  7652.86,
+                                 "prev":  7745.06,
+                                 "changePct":  -1.190,
+                                 "currency":  "USD"
+                             },
+                   "^IXIC":  {
+                                 "price":  25980.191,
+                                 "prev":  26644.91,
+                                 "changePct":  -2.495,
+                                 "currency":  "USD"
+                             },
+                   "ETH-USD":  {
+                                   "price":  2483.72,
+                                   "prev":  2515.2817,
+                                   "changePct":  -1.255,
+                                   "currency":  "USD"
+                               },
+                   "^N225":  {
+                                 "price":  65856.43,
+                                 "prev":  65326.42,
+                                 "changePct":  0.811,
+                                 "currency":  "JPY"
+                             },
+                   "^TNX":  {
+                                "price":  4.704,
+                                "prev":  4.706,
+                                "changePct":  -0.042,
+                                "currency":  "USD"
+                            },
+                   "BZ=F":  {
+                                "price":  88.66,
+                                "prev":  93.78,
+                                "changePct":  -5.460,
+                                "currency":  "USD"
+                            },
+                   "BTC-USD":  {
+                                   "price":  79799.56,
+                                   "prev":  78335.19,
+                                   "changePct":  1.869,
+                                   "currency":  "USD"
+                               },
+                   "^NSEI":  {
+                                 "price":  24189.0,
+                                 "prev":  24078.3,
+                                 "changePct":  0.460,
+                                 "currency":  "INR"
+                             },
+                   "DX-Y.NYB":  {
+                                    "price":  99.022,
+                                    "prev":  98.9,
+                                    "changePct":  0.123,
+                                    "currency":  "USD"
+                                },
+                   "^DJI":  {
+                                "price":  53417.16,
+                                "prev":  53459.78,
+                                "changePct":  -0.080,
+                                "currency":  "USD"
+                            },
+                   "000001.SS":  {
+                                     "price":  3889.445,
+                                     "prev":  3894.422,
+                                     "changePct":  -0.128,
+                                     "currency":  "CNY"
+                                 }
+               },
+    "fx":  {
+               "USDBRL=X":  {
+                                "price":  5.154,
+                                "prev":  5.2143,
+                                "changePct":  -1.156,
+                                "currency":  "BRL"
+                            },
+               "USDCNY=X":  {
+                                "price":  6.7207,
+                                "prev":  6.7426,
+                                "changePct":  -0.325,
+                                "currency":  "CNY"
+                            },
+               "INR=X":  {
+                             "price":  95.53,
+                             "prev":  95.8164,
+                             "changePct":  -0.299,
+                             "currency":  "INR"
+                         },
+               "USDTHB=X":  {
+                                "price":  32.71,
+                                "prev":  33.101,
+                                "changePct":  -1.181,
+                                "currency":  "THB"
+                            },
+               "USDZAR=X":  {
+                                "price":  16.0026,
+                                "prev":  16.2528,
+                                "changePct":  -1.539,
+                                "currency":  "ZAR"
+                            },
+               "USDRUB=X":  {
+                                "price":  84.49,
+                                "prev":  84.894,
+                                "changePct":  -0.476,
+                                "currency":  "RUB"
+                            }
+           },
+    "fng":  [
+                {
+                    "value":  "74",
+                    "value_classification":  "Greed",
+                    "timestamp":  "1787616000"
+                },
+                {
+                    "value":  "73",
+                    "value_classification":  "Greed",
+                    "timestamp":  "1787529600"
+                },
+                {
+                    "value":  "66",
+                    "value_classification":  "Greed",
+                    "timestamp":  "1787443200"
+                },
+                {
+                    "value":  "71",
+                    "value_classification":  "Greed",
+                    "timestamp":  "1787356800"
+                },
+                {
+                    "value":  "72",
+                    "value_classification":  "Greed",
+                    "timestamp":  "1787270400"
+                },
+                {
+                    "value":  "62",
+                    "value_classification":  "Greed",
+                    "timestamp":  "1787184000"
+                },
+                {
+                    "value":  "46",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1787097600"
+                },
+                {
+                    "value":  "41",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1787011200"
+                },
+                {
+                    "value":  "31",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1786924800"
+                },
+                {
+                    "value":  "34",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1786838400"
+                },
+                {
+                    "value":  "34",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1786752000"
+                },
+                {
+                    "value":  "29",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1786665600"
+                },
+                {
+                    "value":  "29",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1786579200"
+                },
+                {
+                    "value":  "27",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1786492800"
+                },
+                {
+                    "value":  "29",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1786406400"
+                },
+                {
+                    "value":  "30",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1786320000"
+                },
+                {
+                    "value":  "31",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1786233600"
+                },
+                {
+                    "value":  "30",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1786147200"
+                },
+                {
+                    "value":  "29",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1786060800"
+                },
+                {
+                    "value":  "25",
+                    "value_classification":  "Extreme Fear",
+                    "timestamp":  "1785974400"
+                },
+                {
+                    "value":  "27",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1785888000"
+                },
+                {
+                    "value":  "25",
+                    "value_classification":  "Extreme Fear",
+                    "timestamp":  "1785801600"
+                },
+                {
+                    "value":  "28",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1785715200"
+                },
+                {
+                    "value":  "27",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1785628800"
+                },
+                {
+                    "value":  "27",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1785542400"
+                },
+                {
+                    "value":  "25",
+                    "value_classification":  "Extreme Fear",
+                    "timestamp":  "1785456000"
+                },
+                {
+                    "value":  "28",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1785369600"
+                },
+                {
+                    "value":  "29",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1785283200"
+                },
+                {
+                    "value":  "29",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1785196800"
+                },
+                {
+                    "value":  "30",
+                    "value_classification":  "Fear",
+                    "timestamp":  "1785110400"
+                }
+            ]
+};
